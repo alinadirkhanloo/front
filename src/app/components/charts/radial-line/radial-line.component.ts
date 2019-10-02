@@ -19,7 +19,7 @@ am4core.useTheme(am4themes_animated);
 // Themes end
 
 /* Create chart instance */
-var chart = am4core.create("chartdiv", am4charts.RadarChart);
+var chart = am4core.create("chartdiv7", am4charts.RadarChart);
 
 var data = [];
 var value1 = 500;
@@ -61,9 +61,6 @@ series2.tooltipText = "{valueY}";
 series2.name = "Series 2";
 series2.bullets.create(am4charts.CircleBullet);
 series2.dataItems.template.locations.dateX = 0.5;
-
-chart.scrollbarX = new am4core.Scrollbar();
-chart.scrollbarY = new am4core.Scrollbar();
 
 chart.cursor = new am4charts.RadarCursor();
 

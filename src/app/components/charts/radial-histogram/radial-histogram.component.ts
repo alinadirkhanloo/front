@@ -21,7 +21,7 @@ am4core.useTheme(am4themes_animated);
 
 // Create chart instance
 var chart = am4core.create("chartdiv8", am4charts.RadarChart);
-chart.scrollbarX = new am4core.Scrollbar();
+// chart.scrollbarX = new am4core.Scrollbar();
 
 var data = [];
 

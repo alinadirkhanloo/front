@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst'
 
 @Component({
   selector: 'app-radar',
@@ -18,145 +19,109 @@ export class RadarComponent implements OnInit {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-var chart = am4core.create("chartdiv4", am4charts.RadarChart);
+// create chart
+var chart = am4core.create("chartdiv4", am4plugins_sunburst.Sunburst);
+chart.padding(0,0,0,0);
+chart.radius = am4core.percent(98);
 
-chart.data = [
+chart.data = [{
+  name: "First",
+  children: [
+    { name: "A1", value: 100 },
+    { name: "A2", value: 60 }
+  ]
+},
+{
+  name: "Second",
+  children: [
+    { name: "B1", value: 135 },
+    { name: "B2", value: 98 }
+  ]
+},
+{
+  name: "Third",
+  children: [
     {
-        category: "One",
-        startDate1: "2018-01-01",
-        endDate1: "2018-03-01"
+      name: "C1",
+      children: [
+        { name: "EE1", value: 130 },
+        { name: "EE2", value: 87 },
+        { name: "EE3", value: 55 }
+      ]
+    },
+    { name: "C2", value: 148 },
+    {
+      name: "C3", children: [
+        { name: "CC1", value: 53 },
+        { name: "CC2", value: 30 }
+      ]
+    },
+    { name: "C4", value: 26 }
+  ]
+},
+{
+  name: "Fourth",
+  children: [
+    { name: "D1", value: 415 },
+    { name: "D2", value: 148 },
+    { name: "D3", value: 89 }
+  ]
+},
+{
+  name: "Fifth",
+  children: [
+    {
+      name: "E1",
+      children: [
+        { name: "EE1", value: 33 },
+        { name: "EE2", value: 40 },
+        { name: "EE3", value: 89 }
+      ]
     },
     {
-        category: "One",
-        startDate1: "2018-04-01",
-        endDate1: "2018-08-15"
-    },
-    {
-        category: "Two",
-        startDate2: "2018-03-01",
-        endDate2: "2018-06-01"
-    },
-    {
-        category: "Two",
-        startDate2: "2018-08-01",
-        endDate2: "2018-10-01"
-    },
-    {
-        category: "Three",
-        startDate3: "2018-02-01",
-        endDate3: "2018-07-01"
-    },
-    {
-        category: "Four",
-        startDate4: "2018-06-09",
-        endDate4: "2018-09-01"
-    },
-    {
-        category: "Four",
-        startDate4: "2018-10-01",
-        endDate4: "2019-01-01"
-    },
-    {
-        category: "Five",
-        startDate5: "2018-02-01",
-        endDate5: "2018-04-15"
-    },
-    {
-        category: "Five",
-        startDate5: "2018-10-01",
-        endDate5: "2018-12-31"
+      name: "E2",
+      value: 148
     }
-];
+  ]
+}];
 
-chart.padding(20, 20, 20, 20);
 chart.colors.step = 2;
-chart.dateFormatter.inputDateFormat = "YYYY-MM-dd";
-chart.innerRadius = am4core.percent(40);
+chart.fontSize = 11;
+chart.innerRadius = am4core.percent(10);
 
-var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis() as any);
-categoryAxis.dataFields.category = "category";
-categoryAxis.renderer.labels.template.location = 0.5;
-categoryAxis.renderer.labels.template.horizontalCenter = "right";
-categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.renderer.tooltipLocation = 0.5;
-categoryAxis.renderer.grid.template.strokeOpacity = 0.07;
-categoryAxis.renderer.minGridDistance = 10;
-categoryAxis.mouseEnabled = false;
-categoryAxis.tooltip.disabled = true;
+// define data fields
+chart.dataFields.value = "value";
+chart.dataFields.name = "name";
+chart.dataFields.children = "children";
 
-var dateAxis = chart.xAxes.push(new am4charts.DateAxis() as any);
-dateAxis.renderer.labels.template.horizontalCenter = "left";
-dateAxis.strictMinMax = true;
-dateAxis.renderer.maxLabelPosition = 0.99;
-dateAxis.renderer.grid.template.strokeOpacity = 0.07;
-dateAxis.min = new Date(2018, 0, 1, 0, 0, 0).getTime();
-dateAxis.max = new Date(2019, 0, 1, 0, 0, 0).getTime();
-dateAxis.mouseEnabled = false;
-dateAxis.tooltip.disabled = true;
-dateAxis.baseInterval = {count:1, timeUnit:"day"};
 
-var series1 = chart.series.push(new am4charts.RadarColumnSeries());
-series1.name = "Series 1";
-series1.dataFields.openDateX = "startDate1";
-series1.dataFields.dateX = "endDate1";
-series1.dataFields.categoryY = "category";
-series1.clustered = false;
-series1.columns.template.radarColumn.cornerRadius = 30;
-series1.columns.template.tooltipText = "{category}: {openDateX} - {dateX}";
+var level0SeriesTemplate = new am4plugins_sunburst.SunburstSeries();
+level0SeriesTemplate.hiddenInLegend = false;
+chart.seriesTemplates.setKey("0", level0SeriesTemplate)
 
-var series2 = chart.series.push(new am4charts.RadarColumnSeries());
-series2.name = "Series 2";
-series2.dataFields.openDateX = "startDate2";
-series2.dataFields.dateX = "endDate2";
-series2.dataFields.categoryY = "category";
-series2.clustered = false;
-series2.columns.template.radarColumn.cornerRadius = 30;
-series2.columns.template.tooltipText = "{category}: {openDateX} - {dateX}";
+// this makes labels to be hidden if they don't fit
+level0SeriesTemplate.labels.template.truncate = true;
+level0SeriesTemplate.labels.template.hideOversized = true;
 
-var series3 = chart.series.push(new am4charts.RadarColumnSeries());
-series3.name = "Series 3";
-series3.dataFields.openDateX = "startDate3";
-series3.dataFields.dateX = "endDate3";
-series3.dataFields.categoryY = "category";
-series3.clustered = false;
-series3.columns.template.radarColumn.cornerRadius = 30;
-series3.columns.template.tooltipText = "{category}: {openDateX} - {dateX}";
+level0SeriesTemplate.labels.template.adapter.add("rotation", function(rotation, target) {
+  target.maxWidth = target.dataItem.slice.radius - target.dataItem.slice.innerRadius - 10;
+  target.maxHeight = Math.abs(target.dataItem.slice.arc * (target.dataItem.slice.innerRadius + target.dataItem.slice.radius) / 2 * am4core.math.RADIANS);
 
-var series4 = chart.series.push(new am4charts.RadarColumnSeries());
-series4.name = "Series 4";
-series4.dataFields.openDateX = "startDate4";
-series4.dataFields.dateX = "endDate4";
-series4.dataFields.categoryY = "category";
-series4.clustered = false;
-series4.columns.template.radarColumn.cornerRadius = 30;
-series4.columns.template.tooltipText = "{category}: {openDateX} - {dateX}";
+  return rotation;
+})
 
-var series5 = chart.series.push(new am4charts.RadarColumnSeries());
-series5.name = "Series 5";
-series5.dataFields.openDateX = "startDate5";
-series5.dataFields.dateX = "endDate5";
-series5.dataFields.categoryY = "category";
-series5.clustered = false;
-series5.columns.template.radarColumn.cornerRadius = 30;
-series5.columns.template.tooltipText = "{category}: {openDateX} - {dateX}";
 
-chart.seriesContainer.zIndex = -1;
+var level1SeriesTemplate = level0SeriesTemplate.clone();
+chart.seriesTemplates.setKey("1", level1SeriesTemplate)
+level1SeriesTemplate.fillOpacity = 0.75;
+level1SeriesTemplate.hiddenInLegend = true;
 
-chart.scrollbarX = new am4core.Scrollbar();
-chart.scrollbarX.exportable = false;
-chart.scrollbarY = new am4core.Scrollbar();
-chart.scrollbarY.exportable = false;
+var level2SeriesTemplate = level0SeriesTemplate.clone();
+chart.seriesTemplates.setKey("2", level2SeriesTemplate)
+level2SeriesTemplate.fillOpacity = 0.5;
+level2SeriesTemplate.hiddenInLegend = true;
 
-chart.cursor = new am4charts.RadarCursor();
-chart.cursor.innerRadius = am4core.percent(40);
-chart.cursor.lineY.disabled = true;
-
-var yearLabel = chart.radarContainer.createChild(am4core.Label);
-yearLabel.text = "2018";
-yearLabel.fontSize = 30;
-yearLabel.horizontalCenter = "middle";
-yearLabel.verticalCenter = "middle";
-
+chart.legend = new am4charts.Legend();
   }
 
 }

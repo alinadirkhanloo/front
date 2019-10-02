@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SidenavModule } from './components/sidenav/sidenav.module';
-import { MapComponent } from './components/charts/map/map.component';
 
 const routes: Routes = [
-  {path:'map',component:MapComponent},
   {
 
     path: '',
