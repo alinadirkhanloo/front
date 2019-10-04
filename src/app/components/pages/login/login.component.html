@@ -1,4 +1,4 @@
-<div class="full-page">
+<!--<div class="full-page">
 <mat-card class="login-card">
     <mat-card-title>
         Login to App
@@ -20,4 +20,42 @@
         </button>
     </mat-card-actions>
 </mat-card>
+</div>-->
+<div class="waveWrapper waveAnimation">
+  <div class="waveWrapperInner bgTop">
+    <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
+    </div>
+  </div>
+  
+  <div class="waveWrapperInner bgMiddle">
+    <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+  </div>
+  
+  <div class="waveWrapperInner bgBottom">
+    <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+  </div>
+</div>
+<div class="full-page">
+    <mat-card class="login-card">
+        <mat-card-title>
+            به سامانه ما خوش آمدید
+        </mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="login-field">
+                <input matInput placeholder="ایمیل" name="email" [(ngModel)]="email" type="email"/>
+            </mat-form-field>
+            <mat-form-field class="login-field">
+                <input matInput placeholder="رمز عبور" name="password" [(ngModel)]="password" type="password"/>
+            </mat-form-field>
+            
+            
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary"
+                    class="login-field" (click)="login(email, password)" type="submit">
+                ورود
+            </button>
+        </mat-card-actions>
+        <a href="#" >رمز خود را فراموش کرده اید؟</a>
+    </mat-card>
 </div>

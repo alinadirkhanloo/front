@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+  }
+  
+  td, th {
+    width: 15%;
+  }
+  ::ng-deep .cdk-column-select {
+    text-align: center;
+  }
+
+  ::ng-deep .mat-paginator-page-size-label{
+    visibility: hidden;
+    display: none
+  }
+  ::ng-deep .mat-paginator-range-actions::before{
+    margin-left: 5px;
+    content: "تعداد سطر"
+  }
