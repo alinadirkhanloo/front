@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SidenavModule } from './components/sidenav/sidenav.module';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { 
   AuthGuardService as AuthGuard 
 } from './services/auth-guard.service';
