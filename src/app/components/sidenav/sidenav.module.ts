@@ -38,6 +38,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { RouterModule } from '@angular/router';
+import { DialogAddComponent } from '../table/dialogs/dialog-add/dialog-add.component';
 
 
 
@@ -45,7 +46,8 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [SidenavComponent],
   imports: [
-    CommonModule,    MatAutocompleteModule,
+    CommonModule,
+    MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
     MatButtonModule,
@@ -82,6 +84,7 @@ import { RouterModule } from '@angular/router';
     MatTreeModule,
     ScrollingModule,
     RouterModule
-  ]
+  ],
+  entryComponents:[DialogAddComponent]
 })
 export class SidenavModule { }

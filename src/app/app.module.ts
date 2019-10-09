@@ -43,13 +43,12 @@ import {MatTreeModule} from '@angular/material/tree';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { DialogAddComponent } from './components/table/dialogs/dialog-add/dialog-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
-    
-    
+    NotFoundComponent,DialogAddComponent
   ],
   imports: [
     BrowserModule,

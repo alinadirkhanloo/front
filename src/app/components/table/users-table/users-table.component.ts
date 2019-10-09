@@ -3,6 +3,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogAddComponent } from '../dialogs/dialog-add/dialog-add.component';
 
 
 
@@ -23,7 +25,10 @@ export interface UserData {
 //   'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
 //   'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
 // ];
-
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 const ELEMENT_DATA: UserData[] = [
   {id: 1, name: 'Hydrogen', email: 'jolan@gmail.com', username: 'H',password:'12345'},
   {id: 2, name: 'Helium', email:'jolan@gmail.com', username: 'He',password:'12345'},
@@ -62,7 +67,10 @@ export class UsersTableComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
+
+  animal: string;
+  name: string;
 
    ngOnInit() {
     this.dataSource.paginator = this.paginator;
@@ -98,7 +106,19 @@ export class UsersTableComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(DialogAddComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 }
+
 
 // /** Builds and returns a new User. */
 // function createNewUser(id: number): UserData {
