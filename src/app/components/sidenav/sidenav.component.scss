@@ -8,15 +8,29 @@
   left: 0;
   right: 0;
 }
+.mat-toolbar{
+  background: #f44336;
+}
 
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   z-index: 2;
+  
+}
+::ng-deep .example-toolbar{
+  height: 100px!important;
 }
 
 h1.example-app-name {
-  margin-left: 8px;
+  margin: 18px;
+  font-size: 25px;
+  color: #fff
+}
+.mat-icon-button{
+  text-align: center;
+  font-size: 28px;
+  color: #fff
 }
 
 .example-sidenav-container {
@@ -39,9 +53,23 @@ h1.example-app-name {
   text-align: center;
 }
 .fa{
-  margin: 0 20px;
+  margin: 0 10px;
 }
+::ng-deep .mat-list-item-content{
+  // background: #f44336;
+  color:rgb(119, 119, 119);
+  margin:20px 16px;
+  font-size: 20px;
 
+}
+::ng-deep .mat-list-item-content:hover{
+  background: #f44336;
+  color:#fff;
+  margin:20px 16px;
+  font-size: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
 
 .search-hero {
   width: 500px;

@@ -12,7 +12,9 @@ import { SemiCircleComponent } from '../../charts/semi-circle/semi-circle.compon
 import { RadialHistogramComponent } from '../../charts/radial-histogram/radial-histogram.component';
 import { RadialLineComponent } from '../../charts/radial-line/radial-line.component';
 import { ResColumnComponent } from '../../common/res-column/res-column.component';
+import { ChartModule } from 'angular-highcharts';
 // import {ResColumnComponent} from '../../common/res-column.component'
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({

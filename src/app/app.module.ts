@@ -44,13 +44,18 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { DialogAddComponent } from './components/table/dialogs/dialog-add/dialog-add.component';
+import { DialogEditComponent } from './components/table/dialogs/dialog-edit/dialog-edit.component';
+import { ChartModule } from 'angular-highcharts';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,DialogAddComponent
+    NotFoundComponent,DialogAddComponent, DialogEditComponent
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

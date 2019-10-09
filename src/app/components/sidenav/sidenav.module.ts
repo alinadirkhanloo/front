@@ -39,6 +39,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { RouterModule } from '@angular/router';
 import { DialogAddComponent } from '../table/dialogs/dialog-add/dialog-add.component';
+import { DialogEditComponent } from '../table/dialogs/dialog-edit/dialog-edit.component';
 
 
 
@@ -85,6 +86,6 @@ import { DialogAddComponent } from '../table/dialogs/dialog-add/dialog-add.compo
     ScrollingModule,
     RouterModule
   ],
-  entryComponents:[DialogAddComponent]
+  entryComponents:[DialogAddComponent,DialogEditComponent]
 })
 export class SidenavModule { }

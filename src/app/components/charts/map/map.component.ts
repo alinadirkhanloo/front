@@ -157,13 +157,13 @@ chart.legend.contentAlign = "left";
 chart.legend.itemContainers.template.interactionsEnabled = false;
 
 // Series for United States map
-var usaSeries = chart.series.push(new am4maps.MapPolygonSeries());
-usaSeries.geodata = am4geodata_usaLow;
+// var usaSeries = chart.series.push(new am4maps.MapPolygonSeries());
+// usaSeries.geodata = am4geodata_usaLow;
 
-var usPolygonTemplate = usaSeries.mapPolygons.template;
-usPolygonTemplate.tooltipText = "{name}";
-usPolygonTemplate.fill = chart.colors.getIndex(1);
-usPolygonTemplate.nonScalingStroke = true;
+// var usPolygonTemplate = usaSeries.mapPolygons.template;
+// usPolygonTemplate.tooltipText = "{name}";
+// usPolygonTemplate.fill = chart.colors.getIndex(1);
+// usPolygonTemplate.nonScalingStroke = true;
  
 }
 }

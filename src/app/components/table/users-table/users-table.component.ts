@@ -5,6 +5,9 @@ import {MatTableDataSource} from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogAddComponent } from '../dialogs/dialog-add/dialog-add.component';
+// import { findIndex } from '@amcharts/amcharts4/.internal/core/utils/Iterator';
+// import { write } from 'fs';
+import { DialogEditComponent } from '../dialogs/dialog-edit/dialog-edit.component';
 
 
 
@@ -16,15 +19,6 @@ export interface UserData {
   password:string
 }
 
-/** Constants used to fill up our data base. */
-// const COLORS: PeriodicElement[]  = [
-//   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-//   'aqua', 'blue', 'navy', 'black', 'gray'
-// ];
-// const NAMES: PeriodicElement[]  = [
-//   'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-//   'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-// ];
 export interface DialogData {
   animal: string;
   name: string;
@@ -68,9 +62,11 @@ export class UsersTableComponent implements OnInit {
 
 
   constructor(public dialog: MatDialog) {}
-
-  animal: string;
+  id: number;
   name: string;
+  username: string;
+  email: string;
+  password:string
 
    ngOnInit() {
     this.dataSource.paginator = this.paginator;
@@ -106,15 +102,41 @@ export class UsersTableComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+
   openAddDialog(): void {
+    // const user=this.dataSource[this.selection.selected.]
     const dialogRef = this.dialog.open(DialogAddComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
+      width: '550px', height:'550px',
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      this.username = result;
+    });
+  }
+
+  openEditDialog(): void{
+    const dialogRef = this.dialog.open(DialogEditComponent, {
+      width: '550px', height:'550px',
+      data: {name: this.name, username: this.username,email:this.email}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.username = result;
+    });
+  }
+
+  setdata(){
+    this.dataSource.data.forEach(row => {
+      if(this.selection.isSelected(row)){
+        this.id=row.id
+        this.name=row.name
+        this.username=row.username
+        this.email=row.email 
+      }
     });
   }
 }

@@ -34,21 +34,21 @@
   
   /* Style the counter cards */
   .card1,.card2,.card3,.card4 {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     padding: 16px;
     color:white;
     text-align: center;
   }
   .card1{
-    background: #6f1b95
+    background: linear-gradient(60deg,#ffa726,#fb8c00);
   }
   .card2{
-    background: #144b92
+    background: linear-gradient(60deg,#66bb6a,#43a047);
   }
   .card3{
-    background: #771155
+    background: linear-gradient(60deg,#ef5350,#e53935);
   }
   .card4{
-    background: #127766
+    background: linear-gradient(60deg,#26c6da,#00acc1);
   }

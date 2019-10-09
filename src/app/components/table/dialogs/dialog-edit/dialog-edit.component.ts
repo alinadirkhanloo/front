@@ -1,4 +1,4 @@
-import { Component, OnInit , Inject} from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export interface UserData {
@@ -10,20 +10,20 @@ export interface UserData {
 }
 
 @Component({
-  selector: 'app-dialog-add',
-  templateUrl: './dialog-add.component.html',
-  styleUrls: ['./dialog-add.component.scss']
+  selector: 'app-dialog-edit',
+  templateUrl: './dialog-edit.component.html',
+  styleUrls: ['./dialog-edit.component.scss']
 })
-export class DialogAddComponent implements OnInit {
+export class DialogEditComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogAddComponent>,
+  constructor(public dialogRef: MatDialogRef<DialogEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UserData) { }
 
   ngOnInit() {
   }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 
 }
