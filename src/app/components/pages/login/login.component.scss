@@ -1,38 +1,56 @@
+.login-title{
+  position: absolute;
+  z-index: 200;
+  color: aliceblue;
+  width: 100%;
+  text-align: center;
+  top:15%;
+}
+
 .full-page{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    position: absolute;
-    z-index: 200;
-    // background: 
-  }
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  z-index: 200;
+}
   
-  .login-card {
-    margin: auto;
-    width: 400px;
-    height: 350px;
-  }
+.login-card {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
   
   .login-field {
     width: 100%;
   }
   .mat-card-content{
-    margin-top: 80px;
+    margin-top: 70px;
     padding: 0 40px;
   }
 
 .mat-card-title{
   margin-top: 20px!important;
-  text-align: center
+  text-align: center;
+  font-size: 36px;
 }
 .mat-card-actions{
   padding: 0 40px;
   
 }
+.mat-input-element{
+  
+  font-size: 20px!important
+
+}
+.mat-input-element::placeholder{
+  font-size: 16px!important
+}
 .mat-button-wrapper,.mat-raised-button ,.mat-button-base{
   font-size: 20px!important;
   padding: 5px 0!important;
   background: #86377b;
+  font-size: 24px!important;
 }
 a{
   padding: 0 40px!important;

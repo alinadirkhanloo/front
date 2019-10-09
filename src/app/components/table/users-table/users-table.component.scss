@@ -1,14 +1,37 @@
 table {
     width: 100%;
   }
+  .column1 {
+    float: right ;
+    width: 80%;
+  }
+  .column2 {
+    float: right ;
+    width: 20%;
+  }
   
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin: 10px 20px;
+  }
+  .row{
+    margin: 10px 20px;
+  }
   .mat-form-field {
-    font-size: 14px;
+    font-size: 16px;
     width: 30%;
+  }
+  .mat-raised-button{
+    margin: 0 10px;
+    font-size: 16px;
   }
   
   td, th {
     width: 15%;
+    font-size: 16px;
   }
   ::ng-deep .cdk-column-select {
     text-align: center;
@@ -16,9 +39,10 @@ table {
 
   ::ng-deep .mat-paginator-page-size-label{
     visibility: hidden;
-    display: none
+    display: none;
   }
   ::ng-deep .mat-paginator-range-actions::before{
     margin-left: 5px;
-    content: "تعداد سطر"
+    content: "تعداد سطر";
+    font-size: 16px;
   }

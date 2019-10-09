@@ -25,6 +25,7 @@
     "@angular/router": "~8.2.7",
     "@auth0/angular-jwt": "^3.0.0",
     "@types/core-js": "^2.5.2",
+    "bootstrap": "^4.3.1",
     "core-js": "^3.2.1",
     "jwt-decode": "^2.2.0",
     "rxjs": "~6.4.0",

@@ -54,7 +54,7 @@ const ELEMENT_DATA: UserData[] = [
 })
 export class UsersTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['select','id','name','email','username','password'];
+  displayedColumns: string[] = ['select','id','name','email','username','password','add'];
   dataSource = new MatTableDataSource<UserData>(ELEMENT_DATA);
   selection = new SelectionModel<UserData>(true, []);
 
