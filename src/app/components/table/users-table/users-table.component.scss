@@ -30,7 +30,7 @@ table {
   }
   
   td, th {
-    width: 15%;
+    width:46px;
     font-size: 16px;
   }
   ::ng-deep .cdk-column-select {
@@ -45,4 +45,7 @@ table {
     margin-left: 5px;
     content: "تعداد سطر";
     font-size: 16px;
+  }
+  .table-actions{
+    margin:0 5px;
   }
