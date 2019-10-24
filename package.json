@@ -30,6 +30,7 @@
     "core-js": "^3.2.1",
     "highcharts": "^7.2.0",
     "highcharts-angular": "^2.4.0",
+    "jalali-moment": "^3.3.3",
     "jwt-decode": "^2.2.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

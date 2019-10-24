@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
+import { throwError, Observable } from 'rxjs';
+import {MapData} from  './../components/charts/map/map.component'
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,8 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   constructor(private http:HttpClient) {}
-
-  baseurl='http://127.0.0.1:8000'
-  login_url='http://127.0.0.1:8000/api/login/'
+  baseurl="http://192.168.204.170:8001/api/v1/upload"
+  // login_url='http://127.0.0.1:8000/api/login/'
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -22,21 +22,47 @@ export class ApiService {
 
   httpHeaders = new HttpHeaders({
     'Content-Type':'application/json',
-    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTcwMjE3NDUyLCJqdGkiOiI2NzYwNDE2YTU2NzQ0YmZiYWNlNTU5NjBkMTIzZjJlZCIsInVzZXJfaWQiOjF9.eZC6rVasPAgCazZucdPLt3KbUHMrZqyxpa1xta4WZuQ'  
+    'Authorization': ''  
   })
 
-  login_user(email, pass){
-    const user = {
-      "username": email,
-      "password" : pass
+  getLocations(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/location-stats",{headers:this.httpHeaders})
+  }
+
+  getNumberOfNews(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/news-statistics",{headers:this.httpHeaders})
+  }
+
+  getNumberOfSites(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/rss-statistics",{headers:this.httpHeaders})
+  }
+
+  getTOpWords(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-words",{headers:this.httpHeaders})
+  }
+
+  getSentiment(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/sentiment-stats",{headers:this.httpHeaders})
+  }
+
+  getTopPlatforms(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-platform",{headers:this.httpHeaders})
+  }
+
+  getTopCategory(){
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-category",{headers:this.httpHeaders})
+  }
+
+  handleError(error) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    this.http.get<any>("http://127.0.0.1:8000/users/",{headers:this.httpHeaders}).subscribe((res) => {
-      console.log(res,email,pass);
-    })
-  }
-  getUsers(){
-    this.http.get<any>("http://127.0.0.1:8000/users/",{headers:this.httpHeaders}).subscribe((res) => {
-      console.log(res);
-    }) 
-  }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+ }
 }

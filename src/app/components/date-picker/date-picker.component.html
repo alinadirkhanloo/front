@@ -1,0 +1,6 @@
+<mat-form-field id="date-form" class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+      <button mat-raised-button (click)="picker.open()"><i class="fa fa-calendar"></i>بازه زمانی</button>
+      <button mat-raised-button >انتخاب پروفایل</button>

@@ -1,106 +1,140 @@
+<div class="header row">
+    <div class="column1 column">
+        <div class="header-card">
+            <div id="header-cont">
+                <app-date-picker style="width: 100%;"></app-date-picker>
+              </div>
+        </div>
 
+        <!-- <div class="header-card">
+          <div id="header-cont">
+            <h3>تعداد خبرهای دریافت شده</h3>
+            <div style="width: 50%;text-align: left">
+                <h3>{{news_num}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="header-card">
+          <div id="header-cont">
+            <h3>تعداد سایت های خبری</h3>
+            <div style="width: 50%;text-align: left">
+                <h3>{{rss_num}}</h3>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!-- <div class="column2 column">
+          <div class="header-card">
+              <div id="header-cont">
+                <h3>تعداد سایت های خبری</h3>
+                <div style="width: 50%;text-align: center">
+                    <h3>{{rss_num}}</h3>
+                </div>
+              </div>
+            </div>
+      </div> -->
+      <div class="column3 column">
+          <div class="header-card">
+              <div id="header-cont">
+                <h3>تعداد سایت های خبری</h3>
+                <div style="text-align: center">
+                    <h3 class="num">{{rss_num}}</h3>
+                </div>
+              </div>
+            </div>
+      </div>
 
-
-<div class="header">
-  <div id="menu" dir="ltr">
-    <span class="res-item">HTML<i class="fa fa-globe"></i></span>
-    <span class="res-item">HTML<i class="fa fa-globe"></i></span>
-    <span class="res-item">HTML<i class="fa fa-globe"></i></span>
-    <span class="res-item">HTML<i class="fa fa-globe"></i></span>
-  </div>
+      <div class="column4 column">
+          <div class="header-card">
+              <div id="header-cont">
+                  <h3>تعداد خبرهای دریافت شده</h3>
+                <div style="text-align: center">
+                    <h3 class="num">{{news_num}}</h3>
+                </div>
+              </div>
+            </div>
+      </div>
 </div>
 
 <div class="row">
   <div class="rightcolumn">
-
     <div class="card">
-      <div class="fakeimg" style="height:400px;">
+        <h2>پراکندگی جغرافیایی</h2>
+      <div class="fakeimg" style="height:390px;">
         <app-map dir="ltr"></app-map>
       </div>
-      <h2>نمودار</h2>
-      <h5>مشخصات ‌,۱۳۹۸/۰۷/۱۲</h5>
-      <p>توضیحات مربوطه</p>
-      <p>توضیحات مربوطه</p>
     </div>
 
-    <div class="card">
+    <!-- <div class="card">
       <div class="fakeimg" style="height:300px;">
         <app-res-column ></app-res-column>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="card">
+        <h2>لغات پرتکرار</h2>
       <div class="fakeimg" style="height:400px;">
         <app-word-cloud dir="ltr"></app-word-cloud>
       </div>
-      <h2>نمودار</h2>
-      <h5>مشخصات ‌,۱۳۹۸/۰۷/۱۲</h5>
-      <p>توضیحات مربوطه</p>
-      <p>توضیحات مربوطه</p>
+      
     </div>
 
 
     <div class="card">
-      <div class="fakeimg" style="height:500px;">
+        <h2>پراکندگی تهدید</h2>
+      <div class="fakeimg" style="height:400px;">
         <app-pure dir="ltr"></app-pure>
       </div>
-      <h2>نمودار</h2>
-      <h5>مشخصات ‌,۱۳۹۸/۰۷/۱۲</h5>
-      <p>توضیحات مربوطه</p>
-      <p>توضیحات مربوطه</p>
     </div>
     <div class="card">
-      <h3>Follow Me</h3>
-      <p>توضیحات مربوطه</p>
+        <h2>پراکندگی پلتفرم</h2>
+      <div class="fakeimg" style="height:700px;">
+        <app-column-chart dir="ltr"></app-column-chart>
+      </div>
     </div>
   </div>
 
 
   <div class="leftcolumn">
-    <div class="card card1">
-      <div class="fakeimg" style="height:500px;">
-        <app-radial-line dir="ltr"></app-radial-line>
-      </div>
-      <div id="chart-content">
-        <h2>نمودار</h2>
-        <p>توضیحات مربوطه</p>
+    <div class="card card3">
+      <h2>کشورهای پرتهدید<i id="ch" class="fa fa-globe"></i></h2>
+      <div class="fakeimg">
+          <div id="menu" dir="rtl">
+              <div *ngFor="let item of top_country;let i=index" class="res-item">{{item.title}}<i>.{{i+1}}</i></div>            
+            </div>
       </div>
     </div>
 
     <div class="card card2">
-      <div class="fakeimg">
-        <app-solid dir="ltr"></app-solid>
-      </div>
-      <h3>نمودار</h3>
-      <br>
-      <p>توضیحات مربوطه</p>
-    </div>
-
-    <div class="card card3">
+      <h2>احساسات</h2>
       <div class="fakeimg">
         <app-semi-circle dir="ltr"></app-semi-circle>
       </div>
-      <br>
-      <h3>نمودار</h3>
-      <br>
-      <p>توضیحات مربوطه</p>
+      
     </div>
 
-    <div class="card card4">
+    <div class="card card1">
+      <h2>برترین تهدیدها</h2>
+      <div class="fakeimg" style="height:400px;">
+        <!-- <app-radial-line dir="ltr"></app-radial-line> -->
+        <app-cylinder dir="ltr"></app-cylinder>
+      </div>
+  </div>
+    <!-- <div class="card card4">
+        <h2>عنوان</h2>
       <div class="fakeimg" style="height:500px;">
         <app-radar dir="ltr"></app-radar>
       </div>
-      <h2>نمودار</h2>
       <p>توضیحات مربوطه</p>
     </div>
-    <div class="card card5">
-      <h3>Follow Me</h3>
+    <div class="card card5" style="height: 205px">
+      <h3>عنوان</h3>
       <p>توضیحات مربوطه</p>
-    </div>
+    </div> -->
   </div>
 </div>
-
+<!-- 
 <div class="footer">
   <h2>Footer</h2>
-</div>
+</div> -->

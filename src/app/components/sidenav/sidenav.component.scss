@@ -1,5 +1,8 @@
+@font-face { font-family: mitra; 
+  src: url('../../../assets/Far_Mitra.ttf'); font-weight: 400;
+} 
 
-.example-container {
+.table-container {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -9,7 +12,7 @@
   right: 0;
 }
 .mat-toolbar{
-  background: #f44336;
+  background: #6d0577;
 }
 
 .example-is-mobile .example-toolbar {
@@ -24,7 +27,8 @@
 
 h1.example-app-name {
   margin: 18px;
-  font-size: 25px;
+  font-size: 36px;
+  font-family: mitra!important;
   color: #fff
 }
 .mat-icon-button{
@@ -59,23 +63,41 @@ h1.example-app-name {
   // background: #f44336;
   color:rgb(119, 119, 119);
   margin:20px 16px;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: mitra!important;
 
 }
 ::ng-deep .mat-list-item-content:hover{
-  background: #f44336;
+  background: #6d0577;
   color:#fff;
   margin:20px 16px;
-  font-size: 20px;
+  font-size: 24px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
 
-.search-hero {
+.logo {
+  font-family: mitra;
   width: 500px;
+  position: fixed;
+  left: 0;
+  display: flex;
+  padding: 5px 10px;
+  background: #6d0577;
+  margin-right: 40%;
   // padding-bottom: 50px;
-  margin:auto;
-}
+  // margin:auto;
+  img{
+    width: 80px;
+    height: 80px;
+  }
+  h1{
+    color: #fff;
+    line-height: 75px;
+    font-size: 28px;
+    font-family: mitra;
+    padding: 0 20px;
+  }}
 
 .form-control {
   display: block;

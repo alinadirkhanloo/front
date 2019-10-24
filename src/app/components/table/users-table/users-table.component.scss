@@ -1,3 +1,10 @@
+@font-face { font-family: mitra; 
+  src: url('../../../../assets/Far_Mitra.ttf'); font-weight: 900;
+} 
+.mat-elevation-z8::ng-deep *{
+  font-family: mitra;
+}
+
 table {
     width: 100%;
   }
@@ -9,6 +16,7 @@ table {
     float: right ;
     width: 30%;
     margin-top: -30px;
+    // .mat-raised-button
   }
   
   /* Clear floats after the columns */
@@ -24,15 +32,17 @@ table {
     border-radius: 5px;
   }
   .mat-form-field {
-    font-size: 16px;
+    font-size: 24px;
     width: 50%;
     padding: 10px 20px;
   }
-  .mat-raised-button{
+  .mat-elevation-z8 .mat-raised-button{
     margin: 0 10px;
-    font-size: 18px;
+    font-size: 22px;
     width: 20%;
     padding: 12px;
+    background: #6d0577;
+    color: #fff;
   }
   .mat-elevation-z8{
     margin-top: 50px;
@@ -41,7 +51,7 @@ table {
   
   td, th {
     width:46px;
-    font-size: 16px;
+    font-size: 20px;
   }
   ::ng-deep .cdk-column-select {
     text-align: center;

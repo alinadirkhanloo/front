@@ -67,7 +67,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-one:build"
+            "browserTarget": "demo-one:build",
+            "port": 4200,
+            "host": "192.168.204.171"
           },
           "configurations": {
             "production": {

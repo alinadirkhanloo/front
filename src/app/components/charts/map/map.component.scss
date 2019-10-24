@@ -1,8 +1,17 @@
+@font-face { font-family: mitra; 
+  src: url('../../../../assets/Far_Mitra.ttf'); font-weight: 400;
+} 
 
 #chartdiv1 {
-    background: lightblue;
+    background: #fff;
     width: 100%;
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    
   }
+
+#chartdiv1::ng-deep tspan{
+  font-family: mitra!important;
+  font-size: 18px;
+}

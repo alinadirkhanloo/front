@@ -1,20 +1,20 @@
 <mat-card-content>
   <form class="my-form">
      <mat-form-field class="full-width">
-            <mat-label>First Name</mat-label>
-            <input  matInput placeholder="First name" value="{{data.name}}" name="fname"  required>
+            <mat-label>نام</mat-label>
+            <input  matInput value="{{data.name}}" name="fname"  required>
          </mat-form-field>
          <mat-form-field class="full-width">
-            <mat-label>UserName</mat-label>
-            <input  matInput  placeholder="Last Name" value="{{data.username}}" name="username"  required>
+            <mat-label>نام کاربری</mat-label>
+            <input  matInput value="{{data.username}}" name="username"  required>
          </mat-form-field>
          <mat-form-field class="full-width">
-            <mat-label>Email</mat-label>
-            <input  matInput  placeholder="Email" value="{{data.email}}" name="email">
+            <mat-label>ایمیل</mat-label>
+            <input  matInput value="{{data.email}}" name="email">
          </mat-form-field>
   </form>
 </mat-card-content>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial>Ok</button>
-</div>
+      <button mat-button cdkFocusInitial>ذخیره</button>
+      <button mat-button (click)="onNoClick()">انصراف</button>
+   </div>

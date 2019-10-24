@@ -21,7 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -40,9 +40,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { RouterModule } from '@angular/router';
 import { DialogAddComponent } from '../table/dialogs/dialog-add/dialog-add.component';
 import { DialogEditComponent } from '../table/dialogs/dialog-edit/dialog-edit.component';
-
-
-
+import { DatePickerComponent ,PERSIAN_DATE_FORMATS} from '../date-picker/date-picker.component';
 
 @NgModule({
   declarations: [SidenavComponent],
@@ -86,6 +84,23 @@ import { DialogEditComponent } from '../table/dialogs/dialog-edit/dialog-edit.co
     ScrollingModule,
     RouterModule
   ],
-  entryComponents:[DialogAddComponent,DialogEditComponent]
+  entryComponents:[DialogAddComponent,DialogEditComponent],
+ 
+  //   { provide: MAT_DATE_LOCALE, useValue: 'fa-IR' },
+  //   { provide: DateAdapter, useClass: CustomDateAdapter, deps: [MAT_DATE_LOCALE] },
+  //   { provide: MAT_DATE_FORMATS, useValue:  {
+  //     parse: {
+  //       dateInput: { month: 'short', year: 'numeric', day: 'numeric' }
+  //     },
+  //     display: {
+  //       dateInput: 'input',
+  //       monthYearLabel: { year: 'numeric', month: 'short' },
+  //       dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
+  //       monthYearA11yLabel: { year: 'numeric', month: 'long' }
+  //     }
+  //   } }
+  // ]
 })
-export class SidenavModule { }
+export class SidenavModule {  }
+
+

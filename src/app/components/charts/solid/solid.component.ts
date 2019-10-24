@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-solid',
@@ -10,9 +11,16 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 })
 export class SolidComponent implements OnInit {
 
-  constructor() { }
+  private recived_data=[]
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.load_data();
+    setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 4000)
+  }
+
+loadChart(data){
 
 // Themes begin
 am4core.useTheme(am4themes_animated);
@@ -24,24 +32,7 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv5", am4charts.RadarChart);
 
 // Add data
-chart.data = [{
-  "category": "Research",
-  "value": 80,
-  "full": 100
-}, {
-  "category": "Marketing",
-  "value": 35,
-  "full": 100
-}, {
-  "category": "Distribution",
-  "value": 92,
-  "full": 100
-}, {
-  "category": "Human Resources",
-  "value": 68,
-  "full": 100
-}];
-
+chart.data = data
 // Make chart not full circle
 chart.startAngle = -90;
 chart.endAngle = 180;
@@ -93,6 +84,24 @@ series2.columns.template.adapter.add("fill", function(fill, target) {
 // Add cursor
 chart.cursor = new am4charts.RadarCursor();
 
+  }
+
+  load_data(){
+    this.apiService.getSentiment().subscribe(data => {
+      this.recived_data=data['body'];
+    });
+  }
+  
+  preProc(data){
+    let temp=[]
+    for(var item in data){
+      temp.push({
+          category: data[item].name,
+          value: (data[item].y/299)*100,
+          full: 100
+      } )
+    }
+    return temp
   }
 
 }

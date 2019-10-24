@@ -1,12 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div class="table-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar  class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><i class="fa fa-bars"></i></button>
-    <h1 class="example-app-name">سامانه</h1>
-    <!--div class="search-hero">
-      <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  جستوجو">
-    </div>-->
+    <h1 class="example-app-name">سامانه تحلیل خبر</h1>
+  <span class="logo">
+      <h1>مرکز تخصصی آپای دانشگاه زنجان</h1>
+    <img src="../../../assets/apa-logo2.png"/>
+    
+      <!-- <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  جستوجو"> -->
+  </span>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"

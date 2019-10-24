@@ -1,0 +1,57 @@
+@font-face { font-family: mitra; 
+    src: url('../../../assets/Far_Mitra.ttf'); font-weight: 400;
+  } 
+
+
+.mat-form-field{
+    width: 0;
+
+}
+ ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper{
+    visibility: hidden!important;
+    font-size: 28px;
+}
+
+.mat-input-0::placeholder{
+    font-size: 24px!important;
+}
+
+
+#date ::ng-deep *,.mat-datepicker-toggle{
+    font-family: mitra!important;
+}
+
+::ng-deep .cdk-overlay-pane{
+    width: 21%!important;
+}
+
+::ng-deep .mat-datepicker-content .mat-calendar {
+    width: 400px!important;
+    height: 450px!important;
+}
+
+::ng-deep .mat-datepicker-content {
+
+    width: 100%;
+
+}
+
+.mat-raised-button{
+    width: 45%;
+    margin: 0 5px;
+    // padding: 18px 30px;
+    background: #6d0577;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    i{
+        margin: 5px 0;
+        float: right;
+    }
+    
+}
+
+::ng-deep .mat-button-wrapper {
+    font-family: mitra!important;
+    font-size: 24px;
+}

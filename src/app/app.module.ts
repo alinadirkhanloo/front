@@ -46,6 +46,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { DialogAddComponent } from './components/table/dialogs/dialog-add/dialog-add.component';
 import { DialogEditComponent } from './components/table/dialogs/dialog-edit/dialog-edit.component';
 import { ChartModule } from 'angular-highcharts';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ColumnChartComponent } from './components/charts/column-chart/column-chart.component';
+import { CylinderComponent } from './components/charts/cylinder/cylinder.component';
 
 
 
@@ -82,7 +85,6 @@ import { ChartModule } from 'angular-highcharts';
     MatRadioModule,
     MatRippleModule,
     MatSelectModule,
-
     MatSliderModule,
     MatSlideToggleModule,
     MatSnackBarModule,
