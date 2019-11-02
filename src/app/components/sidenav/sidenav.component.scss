@@ -77,26 +77,13 @@ h1.example-app-name {
 }
 
 .logo {
-  font-family: mitra;
-  width: 500px;
-  position: fixed;
-  left: 0;
-  display: flex;
-  padding: 5px 10px;
-  background: #6d0577;
-  margin-right: 40%;
-  // padding-bottom: 50px;
-  // margin:auto;
   img{
     width: 80px;
     height: 80px;
   }
   h1{
     color: #fff;
-    line-height: 75px;
-    font-size: 28px;
     font-family: mitra;
-    padding: 0 20px;
   }}
 
 .form-control {
@@ -114,4 +101,70 @@ h1.example-app-name {
 }
 .form-control::placeholder  {
   font-family: FontAwesome;
+}
+
+@media screen and (max-width:680px) {
+  .logo {
+    h1{
+    font-size: 18px !important;
+  }
+  img{
+    width: 70px;
+    height: 70px;
+    }
+  }
+  h1.example-app-name {
+    margin: 16px;
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width:550px) {
+  .logo {
+    h1{
+    font-size: 16px !important;
+  }
+  img{
+    width: 60px;
+    height: 60px;
+    }
+  }
+  h1.example-app-name {
+    margin: 14px;
+    font-size: 28px;
+  }
+  .w3-container{
+    padding: 0.01em 10px!important;
+}
+}
+
+@media screen and (max-width:550px) {
+  .logo {
+    h1{
+    font-size: 16px !important;
+  }
+  img{
+    width: 50px;
+    height: 50px;
+    }
+  }
+  h1.example-app-name {
+    margin: 14px;
+    font-size: 24px;
+  }
+  .w3-container {
+    padding: 0.01em 5px;
+}
+}
+
+@media screen and (max-width:390px) {
+  .logo {
+    h1{
+    font-size: 14px !important;
+  }
+  img{
+    width: 50px;
+    height: 50px;
+    }
+  }
 }

@@ -5,63 +5,6 @@
 *{
 font-family: mitra!important;
 }
-
-.login-title{
-  position: absolute;
-  z-index: 200;
-  color: black;
-  width: 100%;
-  height: 190px;
-  text-align: center;
-  background: #27273c;
-}
-
-.full-page{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  position: absolute;
-  z-index: 200;
-}
-  
-.login-card {
-  margin: auto;
-  width: 400px;
-  height: 400px;
-}
-  
-  .login-field {
-    width: 100%;
-  }
-  .mat-card-content{
-    margin-top: 70px;
-    padding: 0 40px;
-  }
-
-.mat-card-title{
-  margin-top: 20px!important;
-  text-align: center;
-  font-size: 36px;
-}
-.mat-card-actions{
-  padding: 0 40px;
-  
-}
-::ng-deep .mat-input-element{
-  font-family: mitra!important;
-  font-size: 20px!important
-}
-::ng-deep .mat-input-element::placeholder{
-  font-size: 16px!important;
-  font-family: mitra!important;
-}
-::ng-deep .mat-button-wrapper,.mat-raised-button ,.mat-button-base{
-  font-size: 20px!important;
-  padding: 5px 0!important;
-  background: #6d0577;
-  font-size: 24px!important;
-  font-family: mitra!important;
-}
 a{
   padding: 0 40px!important;
   font-size: 18px!important;
@@ -161,110 +104,48 @@ a:active {
 }
 
 
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  background: linear-gradient(180deg,#27273c,#27273c);
-  width: 20.43%;
-  padding: 10px;
-  height: 170px; /* Should be removed. Only for demonstration */
-}
-.title-column {
-  background: #27273c;
-  color: #fff;
-  float: left;
-  width: 56%;
-  padding: 10px;
-  height: 170px; /* Should be removed. Only for demonstration */
-  
-  h2{
-    font-size: 38px;
-  }
-  p{
-    font-size: 20px;
-  }
-}
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+#login-btn{
+  background: #6d0577;
+  color:#fff;
 }
 
-#apa{
-  width: 130px;
-  height: 85%;
+#login-btn:hover{
+  background: #54045c!important;
+  color:#fff!important;
 }
 
-#maher{
-  width: 250px;
-  height: 75%;
+#form-container{
+  background: #fff;
 }
 
-/* Use a media query to add a breakpoint at 765px: */
-@media screen and (max-width: 770px) {
-  .column{
-    width: 33.33%;
-  }
-  .title-column{
-    width: 25%;
-    h2{
-      font-size: 30px;
-    }
-  }
-
-  }
-
-/* Use a media query to add a breakpoint at 375px: */
-@media screen and (max-width: 375px) {
-.login-card {
-    margin: auto;
-    width: 250px;
-    height: 360px;
-}
-
-.column{
-  width:0%;
-}
-
-
-.title-column{
-  position: absolute;
-  background: none;
-  top: 47%;
-  font-size: 16px;
-  width: 100%;
-  height: 100%;
-  h2{
-    font-size: 20px;
+@media screen and (max-width:1500px) {
+  #form-container {   
+    max-width: 35% !important;
   }
 }
 
-#apa{
-  width: 30%;
-  height: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 15px;
-}
-  
-#maher{
-  width: 45%;
-  height: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 15px;
+@media screen and (max-width:1100px) {
+  #form-container {   
+    max-width: 45% !important;
+  }
 }
 
-.full-page{
-  top: 8%;
+@media screen and (max-width:800px) {
+  #form-container {   
+    max-width: 55% !important;
+  }
+  #title{
+    font-size: 32px !important;
+  }
 }
 
-.mat-card-content {
-  margin-top: 20px;
-  padding: 0 40px;
+@media screen and (max-width:680px) {
+  #title{
+    font-size: 24px !important;
+  }
 }
+@media screen and (max-width:390px) {
+  #title{
+    font-size: 18px !important;
+  }
 }
-

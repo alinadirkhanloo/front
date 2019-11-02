@@ -10,6 +10,11 @@
     font-family: mitra!important;
   }
 
+  .chart-title{
+    background: #6d0577;
+    color:#fff;
+  }
+
 /* Header/Blog Title */
 .header{
   border-radius: 5px;
@@ -38,16 +43,15 @@
     }
   }
 
-  .num{
-    border-radius: 100%;
-    height: 71px;
-    width: 20%;
-    color: #fff;
-    margin: -5px auto;
-    line-height: 71px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background: #6d0577;
-  }
+.num{
+  height: 90px;
+  width: 90px;
+  color: #fff;
+  line-height: 65px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: #6d0577;
+  margin-bottom: -45px
+}
 
 
   #menu{
@@ -170,19 +174,59 @@
     clear: both;
   }
   
-  /* Footer */
-  .footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-    margin-top: 20px;
+  .chart{
+    background:#fff;
+    margin-top:10px;
+    margin-bottom:10px;
   }
 
+.country-item{
+  width:50%;
+  font-size: 20px;
+}
   
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
-      width: 100%;
-      padding: 0;
+  @media screen and (max-width: 1190px) {
+    .card1 {   
+      width:28.99999%;
+    }
+    .card2{
+      width:70.99999%;
     }
   }
+  @media screen and (max-width: 1020px) {
+    .card1 {   
+      width:100%;
+    }
+    .card2{
+      width:100%;
+    }
+
+    #top-country{
+      height: auto!important;
+    }
+    .country-item{
+      width:auto;
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width:680px) {
+    #header .w3-col.s4 {
+        width: 50%!important;
+    }
+  }
+    @media screen and (max-width:600px) {
+      #header{
+        margin-top:10%;
+      }
+      #header .w3-col.s4 {
+          width: 50%!important;
+      }
+}
+@media screen and (max-width:525px) {
+  #header .w3-col.s4 {
+      width: 100%!important;
+  }
+
+}

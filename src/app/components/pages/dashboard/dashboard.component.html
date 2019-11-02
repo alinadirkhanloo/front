@@ -1,38 +1,11 @@
-<div class="header row">
+<!--<div class="header row">
     <div class="column1 column">
         <div class="header-card">
             <div id="header-cont">
                 <app-date-picker style="width: 100%;"></app-date-picker>
               </div>
         </div>
-
-        <!-- <div class="header-card">
-          <div id="header-cont">
-            <h3>تعداد خبرهای دریافت شده</h3>
-            <div style="width: 50%;text-align: left">
-                <h3>{{news_num}}</h3>
-            </div>
-          </div>
-        </div>
-        <div class="header-card">
-          <div id="header-cont">
-            <h3>تعداد سایت های خبری</h3>
-            <div style="width: 50%;text-align: left">
-                <h3>{{rss_num}}</h3>
-            </div>
-          </div>
-        </div> -->
       </div>
-      <!-- <div class="column2 column">
-          <div class="header-card">
-              <div id="header-cont">
-                <h3>تعداد سایت های خبری</h3>
-                <div style="width: 50%;text-align: center">
-                    <h3>{{rss_num}}</h3>
-                </div>
-              </div>
-            </div>
-      </div> -->
       <div class="column3 column">
           <div class="header-card">
               <div id="header-cont">
@@ -55,8 +28,32 @@
             </div>
       </div>
 </div>
+-->
+<div id="header" class="w3-container">
+  <div class="w3-row-padding">
+    <div class="w3-col s4  ">
+      <div class="w3-container w3-round w3-card-2 w3-center w3-margin w3-padding-16 w3-white">
+        <h2>تعداد سایت های خبری</h2>
+        <span class="w3-badge w3-margin-left num"><h1 style="font-size:36px">{{rss_num}}</h1></span>
+      </div>
+    </div>
+    <div class="w3-col s4">
+      <div class="w3-container w3-round w3-card-2 w3-center w3-margin w3-padding-16 w3-white">
+        <h2>تعداد خبرهای دریافت شده</h2>
+        <span class="w3-badge w3-margin-left num"><h1 style="font-size:36px">{{news_num}}</h1></span>
+      </div>
+    </div>
+    <div class="w3-col s4">
+      <div class="w3-container w3-round w3-card-2 w3-margin w3-padding-16 w3-white">
+        <app-date-picker style="width: 100%;"></app-date-picker>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="row">
+
+
+<!--<div class="row">
   <div class="rightcolumn">
     <div class="card">
         <h2>پراکندگی جغرافیایی</h2>
@@ -64,13 +61,6 @@
         <app-map dir="ltr"></app-map>
       </div>
     </div>
-
-    <!-- <div class="card">
-      <div class="fakeimg" style="height:300px;">
-        <app-res-column ></app-res-column>
-      </div>
-    </div> -->
-
 
     <div class="card">
         <h2>لغات پرتکرار</h2>
@@ -117,24 +107,117 @@
     <div class="card card1">
       <h2>برترین تهدیدها</h2>
       <div class="fakeimg" style="height:400px;">
-        <!-- <app-radial-line dir="ltr"></app-radial-line> -->
         <app-cylinder dir="ltr"></app-cylinder>
       </div>
   </div>
-    <!-- <div class="card card4">
-        <h2>عنوان</h2>
-      <div class="fakeimg" style="height:500px;">
-        <app-radar dir="ltr"></app-radar>
-      </div>
-      <p>توضیحات مربوطه</p>
+  </div>
+</div>-->
+<!---->
+<div class="w3-row-padding w3-section">
+  <div class="w3-col s3 card1">
+    <div id="top-country" class="w3-container w3-card-4 w3-round chart" style="height:470px;">
+        <div class="w3-container w3-round chart-title">
+            <h2>کشورهای پرتهدید
+                <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+            </h2>
+        </div>
+        <ul class="w3-ul">
+            <li class="w3-border-0 w3-right country-item" *ngFor="let item of top_country;let i=index" >{{item.title}}<i>.{{i+1}}</i></li>
+          </ul>
     </div>
-    <div class="card card5" style="height: 205px">
-      <h3>عنوان</h3>
-      <p>توضیحات مربوطه</p>
-    </div> -->
+  </div>
+  <div class="w3-col s9 card2">
+    <div class="w3-card-4 w3-round chart" style="height:470px;">
+    <div class="w3-container w3-round chart-title">
+            <h2>پراکندگی جغرافیایی
+            </h2>
+        </div>
+        <app-map dir="ltr"></app-map>
+    </div>
   </div>
 </div>
-<!-- 
-<div class="footer">
-  <h2>Footer</h2>
-</div> -->
+
+<div class="w3-row-padding w3-section">
+  <div class="w3-col s3 card1">
+    <div class="w3-container w3-card-4 w3-round chart" style="height:475px;">
+        <div class="w3-container w3-round chart-title">
+            <h2>احساسات
+                <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+            </h2>
+        </div>
+        <app-semi-circle dir="ltr"></app-semi-circle>
+    </div>
+  </div>
+  <div class="w3-col s9 card2">
+    <div class="w3-card-4 w3-round" style="background:#fff;height:475px; margin:10px;">
+    <div class="w3-container chart-title w3-round">
+            <h2>لغات پرتکرار
+            </h2>
+        </div>
+        <app-word-cloud dir="ltr"></app-word-cloud>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-section">
+  <div class="w3-col s3 card1">
+    <div class="w3-container w3-card-4 w3-round chart" style="height:475px; ">
+        <div class="w3-container chart-title w3-round">
+            <h2>برترین تهدیدها
+                <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+            </h2>
+        </div>
+        <app-cylinder dir="ltr"></app-cylinder>
+    </div>
+  </div>
+  <div class="w3-col s9 card2">
+    <div class="w3-card-4 w3-round" style="background:#fff;height:475px; margin:10px;">
+    <div class="w3-container chart-title w3-round">
+            <h2>پراکندگی تهدید
+            </h2>
+        </div>
+        <app-pure dir="ltr"></app-pure>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row-padding w3-section">
+  <div class="w3-col s3 card1">
+    <div class="w3-row">
+        <div class="w3-container w3-card-4 w3-round chart" style="height:375px;">
+            <div class="w3-container chart-title w3-round">
+                <h2>برترین تهدیدها
+                    <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+                </h2>
+            </div>
+            <app-cylinder dir="ltr"></app-cylinder>
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-container w3-card-4 w3-round chart" style="height:375px;">
+            <div class="w3-container w3-purple w3-round">
+                <h2>برترین تهدیدها
+                    <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+                </h2>
+            </div>
+            <app-cylinder dir="ltr"></app-cylinder>
+        </div>
+    </div>
+  </div>
+  <div class="w3-col s9 card2">
+    <div class="w3-card-4 w3-round" style="background:#fff;height:770px; margin:10px;">
+    <div class="w3-container chart-title w3-round">
+            <h2>پراکندگی پلتفرم
+            </h2>
+        </div>
+        <app-column-chart dir="ltr"></app-column-chart>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div class="w3-container">
+  <app-test></app-test>
+<div>
+-->

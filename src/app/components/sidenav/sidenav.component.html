@@ -1,15 +1,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <div class="table-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar  class="example-toolbar">
+  <mat-toolbar  class="example-toolbar  w3-display-container">
     <button mat-icon-button (click)="snav.toggle()"><i class="fa fa-bars"></i></button>
     <h1 class="example-app-name">سامانه تحلیل خبر</h1>
-  <span class="logo">
-      <h1>مرکز تخصصی آپای دانشگاه زنجان</h1>
-    <img src="../../../assets/apa-logo2.png"/>
+  <div class="w3-container w3-display-left">
+    <div class="w3-container w3-cell logo">
+      <p><h1 class="w3-text w3-cell w3-xlarge w3-cell-middle">مرکز تخصصی آپای دانشگاه زنجان</h1><p>
+    </div>
+
+    <div class="w3-container w3-cell logo">
+      <img class="w3-img w3-cell" src="../../../assets/apa-logo2.png"/>
+    </div>
+<!--
+    <h1 class="w3-text">مرکز تخصصی آپای دانشگاه زنجان</h1>
     
-      <!-- <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  جستوجو"> -->
-  </span>
+    
+       <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  جستوجو"> -->
+  </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
