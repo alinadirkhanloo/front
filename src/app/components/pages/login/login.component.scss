@@ -190,3 +190,81 @@ a:active {
   display: table;
   clear: both;
 }
+
+#apa{
+  width: 130px;
+  height: 85%;
+}
+
+#maher{
+  width: 250px;
+  height: 75%;
+}
+
+/* Use a media query to add a breakpoint at 765px: */
+@media screen and (max-width: 770px) {
+  .column{
+    width: 33.33%;
+  }
+  .title-column{
+    width: 25%;
+    h2{
+      font-size: 30px;
+    }
+  }
+
+  }
+
+/* Use a media query to add a breakpoint at 375px: */
+@media screen and (max-width: 375px) {
+.login-card {
+    margin: auto;
+    width: 250px;
+    height: 360px;
+}
+
+.column{
+  width:0%;
+}
+
+
+.title-column{
+  position: absolute;
+  background: none;
+  top: 47%;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  h2{
+    font-size: 20px;
+  }
+}
+
+#apa{
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px;
+}
+  
+#maher{
+  width: 45%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px;
+}
+
+.full-page{
+  top: 8%;
+}
+
+.mat-card-content {
+  margin-top: 20px;
+  padding: 0 40px;
+}
+}
+
