@@ -141,6 +141,39 @@ polygonTemplate.strokeWidth = 0.5;
 // Create hover state and set alternative fill color
 var hs = polygonTemplate.states.create("hover");
 hs.properties.fill = am4core.color("#3c5bdc");
+var lastSelected;
+polygonTemplate.events.on("hit", function(ev) {
+    // This line serves multiple purposes:
+    // 1. Clicking a country twice actually de-activates, the line below
+    //    de-activates it in advance, so the toggle then re-activates, making it
+    //    appear as if it was never de-activated to begin with.
+    // 2. Previously activated countries should be de-activated.  
+    var x = document.getElementById("map-detail");
+    var y = document.getElementById("chartdiv1");
+    if( x.className.indexOf("w3-show")==-1){
+      x.className+=" w3-show"
+      y.className+=" w3-hide"
+    }else{
+      x.className=x.className.replace(" w3-show","");
+      y.className=y.className.replace(" w3-hide","");
+    }
+  ev.target.series.chart.zoomToMapObject(ev.target);
+  if (lastSelected !== ev.target) {
+    lastSelected = ev.target;
+  }
+})
+chart.zoomControl = new am4maps.ZoomControl();
+var homeButton = new am4core.Button();
+homeButton.events.on("hit", function(){
+  chart.goHome();
+});
+homeButton.icon = new am4core.Sprite();
+homeButton.padding(7, 5, 7, 5);
+homeButton.width = 30;
+homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+homeButton.marginBottom = 10;
+homeButton.parent = chart.zoomControl;
+homeButton.insertBefore(chart.zoomControl.plusButton);
 }
 
 
@@ -165,4 +198,12 @@ loadMapData(temp){
   }
   return d
 }
+
+show_map(){
+  var x = document.getElementById("map-detail");
+  var y = document.getElementById("chartdiv1");
+  x.className=x.className.replace(" w3-show","");
+  y.className=y.className.replace(" w3-hide","");
+}
+
 }

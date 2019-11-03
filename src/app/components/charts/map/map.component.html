@@ -4,10 +4,17 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 <div class="w3-container">
-    <!-- <div id="chartdiv1"></div> -->
-    <div class="w3-container w3-display-container w3-white" style="height: 400px;">
-        <span id="flag" class="w3-badge w3-xlarge w3-padding w3-red w3-display-topleft w3-card-2">
-            <i id="ch" class="fa fa-flag"></i></span>
+    <!-- <div id="chartdiv1" style="direction: ltr"></div> -->
+    <div id="map-detail" class="w3-container w3-display-container w3-white w3-animate-top" 
+    style="height: 400px;direction: rtl">
+        
+        <img id="flag" 
+        class=" w3-xlarge w3-display-topleft w3-card-2 w3-circle"
+        src="../../../../assets/flags/4x3/ir.svg" style="height: 50px;width: 50px;"/>
+
+        <span (click)="show_map()"
+            class="w3-button w3-large w3-display-topleft">&times;</span>
+
         <h2 class="w3-container">ایران</h2>
         <hr>
 
@@ -15,11 +22,11 @@
 
             <div class="w3-container w3-cell w3-white"  style="width:75%;">
                 <header class="w3-container">
-                    <h3>عناوین اخبار</h3>
+                    <h2>عناوین اخبار</h2>
                 </header>
                 
                 <div class="w3-container">
-                    <ul class="w3-ul" style="overflow: scroll; height: 245px;" >
+                    <ul class="w3-ul" style="overflow-y: scroll; height: 225px;" >
                         <li class="w3-hover-gray">Jill</li>
                         <li class="w3-hover-gray">Eve</li>
                         <li class="w3-hover-gray">Adam</li>
@@ -44,13 +51,21 @@
                 </div> -->
             </div>
           
-            <div class="w3-container w3-cell w3-white w3-card" style="width:35%">
+            <div class="w3-container w3-cell w3-white w3-round w3-border-right" style="width:35%">
                 <div class="w3-container w3-margin-top w3-padding ">
-                    <p>تعداد خبرها<span class="w3-badge w3-deep-purple w3-left w3-xlarge w3-padding"
-                        style="margin-top:-15px">60</span></p>
+                    <h2>تعداد خبرها<span class="w3-badge badge w3-left w3-xlarge w3-padding w3-card"
+                        style="margin-top:-15px">60</span></h2>
+                </div>
+                <div class="w3-container w3-margin-top w3-padding ">
+                        <h2>رتبه<span class="w3-badge badge w3-left w3-xlarge w3-padding w3-card"
+                            style="margin-top:-15px">16</span></h2>
+                </div>
+                <div class="w3-container w3-margin-top w3-padding ">
+                        <h2>تعداد خبرها<span class="w3-badge badge w3-left w3-xlarge w3-padding w3-card"
+                            style="margin-top:-15px">60</span></h2>
                 </div>
             </div>
           
-          </div>
+        </div>
     </div>
 </div>

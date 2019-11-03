@@ -1,7 +1,9 @@
 @font-face { font-family: mitra; 
   src: url('../../../../assets/Far_Mitra.ttf'); font-weight: 400;
 } 
-
+*{
+  font-family: mitra;
+}
 #chartdiv1 {
     background: #fff;
     width: 100%;
@@ -19,4 +21,8 @@
 #flag{
   margin-top: 16px;
   margin-left: 50px;
+}
+
+.badge{
+  background: #6d0577;
 }

@@ -122,7 +122,7 @@
             </h2>
         </div>
         <ul class="w3-ul">
-            <li class="w3-border-0 w3-right country-item" *ngFor="let item of top_country;let i=index" >{{item.title}}<i>.{{i+1}}</i></li>
+            <li class="w3-border-0 w3-right country-item" onclick="open_map_detail()" *ngFor="let item of top_country;let i=index" >{{item.title}}<i>.{{i+1}}</i></li>
           </ul>
     </div>
   </div>
@@ -132,7 +132,7 @@
             <h2>پراکندگی جغرافیایی
             </h2>
         </div>
-        <app-map dir="ltr"></app-map>
+        <app-map></app-map>
     </div>
   </div>
 </div>

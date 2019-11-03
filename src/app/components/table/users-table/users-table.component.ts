@@ -24,26 +24,26 @@ export interface DialogData {
   name: string;
 }
 const ELEMENT_DATA: UserData[] = [
-  {id: 1, name: 'Hydrogen', email: 'jolan@gmail.com', username: 'H',password:'12345'},
-  {id: 2, name: 'Helium', email:'jolan@gmail.com', username: 'He',password:'12345'},
-  {id: 3, name: 'Lithium', email:'jolan@gmail.com', username: 'Li',password:'12345'},
-  {id: 4, name: 'Beryllium', email:'jolan@gmail.com', username: 'Be',password:'12345'},
-  {id: 5, name: 'Boron', email:'jolan@gmail.com', username: 'B',password:'12345'},
-  {id: 6, name: 'Carbon', email:'jolan@gmail.com', username: 'C',password:'12345'},
-  {id: 7, name: 'Nitrogen', email:'jolan@gmail.com', username: 'N',password:'12345'},
-  {id: 8, name: 'Oxygen', email:'jolan@gmail.com', username: 'O',password:'12345'},
-  {id: 9, name: 'Fluorine', email: 'jolan@gmail.com', username: 'F',password:'12345'},
-  {id: 10, name: 'Neon', email:'jolan@gmail.com', username: 'Ne',password:'12345'},
-  {id: 1, name: 'Hydrogen', email: 'jolan@gmail.com', username: 'H',password:'12345'},
-  {id: 2, name: 'Helium', email:'jolan@gmail.com', username: 'He',password:'12345'},
-  {id: 3, name: 'Lithium', email:'jolan@gmail.com', username: 'Li',password:'12345'},
-  {id: 4, name: 'Beryllium', email:'jolan@gmail.com', username: 'Be',password:'12345'},
-  {id: 5, name: 'Boron', email:'jolan@gmail.com', username: 'B',password:'12345'},
-  {id: 6, name: 'Carbon', email:'jolan@gmail.com', username: 'C',password:'12345'},
-  {id: 7, name: 'Nitrogen', email:'jolan@gmail.com', username: 'N',password:'12345'},
-  {id: 8, name: 'Oxygen', email:'jolan@gmail.com', username: 'O',password:'12345'},
-  {id: 9, name: 'Fluorine', email: 'jolan@gmail.com', username: 'F',password:'12345'},
-  {id: 10, name: 'Neon', email:'jolan@gmail.com', username: 'Ne',password:'12345'},
+  {id: 1, name: 'علی', email: 'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 2, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 3, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 4, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 5, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 6, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 7, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 8, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 9, name: 'علی', email: 'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 10, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 1, name: 'علی', email: 'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 2, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 3, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 4, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 5, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 6, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 7, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 8, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 9, name: 'علی', email: 'jolan@gmail.com', username: 'jolan',password:'12345'},
+  {id: 10, name: 'علی', email:'jolan@gmail.com', username: 'jolan',password:'12345'},
 ];
 
 @Component({
@@ -71,6 +71,8 @@ export class UsersTableComponent implements OnInit {
    ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    var x = document.querySelectorAll("mat-paginator-range-label");
+    x[0].textContent = "something else";
   }
 
   /** Whether the number of selected elements matches the total number of rows. */
