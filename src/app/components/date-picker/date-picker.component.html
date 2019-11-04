@@ -1,8 +1,33 @@
-<div id="date-container" class="w3-container">
+<div id="date-container" class="w3-container w3-hide">
         <mat-form-field id="date-form" class="example-full-width">
                 <input matInput [matDatepicker]="picker" placeholder="Choose a date">
                 <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
               <button class="date-picker" mat-raised-button (click)="picker.open()"><i class="fa fa-calendar"></i>بازه زمانی</button>
               <button class="date-picker" mat-raised-button >انتخاب پروفایل</button>
+</div>
+<div id="date-range">
+        <div class="w3-modal-content">
+                <header class="w3-container">
+                    <span onclick="document.getElementById('date-range').style.display='none'"
+                    class="w3-button w3-display-topleft">&times;</span>
+                    <h2>انتخاب بازه زمانی</h2>
+                </header>
+                <div class="w3-container">
+                        <!--  -->
+                        <div class="w3-row">
+                                <div class="w3-col s4 w3-green w3-center">
+                                        <mat-form-field>
+                                                <input matInput [matDatepicker]="dp" placeholder="Different locale">
+                                                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                                                <mat-datepicker #dp></mat-datepicker>
+                                        </mat-form-field>
+                                </div>
+                                <div class="w3-col s4 w3-dark-grey w3-center"><p>s4</p></div>
+                                <div class="w3-col s4 w3-red w3-center"><p>s4</p></div>
+                        </div>                      
+                                              
+                </div>
         </div>
+</div>
+              

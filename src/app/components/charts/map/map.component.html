@@ -4,8 +4,8 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 <div class="w3-container">
-    <!-- <div id="chartdiv1" style="direction: ltr"></div> -->
-    <div id="map-detail" class="w3-container w3-display-container w3-white w3-animate-top" 
+    <div id="chartdiv1" style="direction: ltr"></div>
+    <div id="map-detail" class="w3-container w3-display-container w3-white w3-animate-top w3-hide" 
     style="height: 400px;direction: rtl">
         
         <img id="flag" 
@@ -15,43 +15,50 @@
         <span (click)="show_map()"
             class="w3-button w3-large w3-display-topleft">&times;</span>
 
-        <h2 class="w3-container">ایران</h2>
+        <h2 class="w3-container"><span matBadge="4" matBadgeOverlap="false"
+            matBadgeColor="accent">ایران</span>
+        </h2>
         <hr>
+
 
         <div class="w3-cell-row w3-white">
 
             <div class="w3-container w3-cell w3-white"  style="width:75%;">
-                <header class="w3-container">
-                    <h2>عناوین اخبار</h2>
+                <header class="w3-container w3-bottombar">
+                    <h2><span class="w3-badge badge w3-large w3-padding w3-left w3-card">60</span>عناوین اخبار</h2>
                 </header>
                 
-                <div class="w3-container">
-                    <ul class="w3-ul" style="overflow-y: scroll; height: 225px;" >
-                        <li class="w3-hover-gray">Jill</li>
-                        <li class="w3-hover-gray">Eve</li>
-                        <li class="w3-hover-gray">Adam</li>
-                        <li class="w3-hover-gray">Jill</li>
-                        <li class="w3-hover-gray">Eve</li>
-                        <li class="w3-hover-gray">Adam</li>
-                        <li class="w3-hover-gray">Jill</li>
-                        <li class="w3-hover-gray">Eve</li>
-                        <li class="w3-hover-gray">Adam</li>
-                        <li class="w3-hover-gray">Jill</li>
-                        <li class="w3-hover-gray">Eve</li>
-                        <li class="w3-hover-gray">Adam</li>
+                <div class="w3-container" style="overflow: hidden;">
+                    <ul id="news-list" class="w3-ul">
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                            <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
+                        <li class="w3-hover-light-grey">عنوان خبر 
+                                <a class="w3-bar-item w3-left" onclick="document.getElementById('new-desc').style.display='block'"><i  class="fa fa-chevron-down w3-padding"></i>بیشتر</a>
+                        </li>
                     </ul>
                 </div>
-                
-                <!-- <header class="w3-container w3-blue">
-                    <h3>Header</h3>
-                </header>
-
-                <div class="w3-container w3-green">
-                <p>body</p>
-                </div> -->
             </div>
           
-            <div class="w3-container w3-cell w3-white w3-round w3-border-right" style="width:35%">
+            <!-- <div class="w3-container w3-cell w3-white w3-round" style="width:35%">
                 <div class="w3-container w3-margin-top w3-padding ">
                     <h2>تعداد خبرها<span class="w3-badge badge w3-left w3-xlarge w3-padding w3-card"
                         style="margin-top:-15px">60</span></h2>
@@ -64,8 +71,49 @@
                         <h2>تعداد خبرها<span class="w3-badge badge w3-left w3-xlarge w3-padding w3-card"
                             style="margin-top:-15px">60</span></h2>
                 </div>
-            </div>
+            </div> -->
           
+        </div>
+    </div>
+</div>
+
+
+<div id="new-desc" class="w3-modal">
+    <div class="w3-modal-content">
+        <div class="w3-container">
+            <span onclick="document.getElementById('new-desc').style.display='none'" class="w3-button w3-display-topleft">&times;</span>
+
+            <header class="w3-container">
+                <h2>ابزار رمزگشایی باج افزار STOP (Djvu)</h2>
+            </header>
+            <hr>
+
+            <div class="w3-cell-row w3-white">
+
+                <div class="w3-container w3-white">
+                    <p class="w3-large">شرکت Emsisoft ابزار جدید رمزگشایی مجدد باج افزار STOP (Djvu) را منتشر کرده است، در ماه‌های گذشته تیم تحقیقاتی به قربانیان بسیاری از تهدیدهای دیگر کمک کردند.
+
+                            باج افزار STOP (Djvu) صد و شصت (۱۶۰) گونه دارد که صدها هزار قربانی را در سرتاسر جهان آلوده کرده است. کارشناسان تعداد کل قربانیان را ۴۶۰,۰۰۰ نفر تخمین زده‌اند که این تهدید را به فعال‌ترین و گسترده‌ترین باج افزار این روزها تبدیل می‌کند.
+                            
+                            مطابق اطلاعات موجود در گزارش آمار باج افزار برای فصل دوم و سوم سال ۲۰۱۹ بیش از نیمی از باج افزارهای گزارش‌شده در سرتاسر جهان، یکی از انواع باج افزار Djvu بوده است.</p>
+                </div>
+                <div class="w3-container">
+                    <div class="w3-show-inline-block w3-padding">
+                        <div class="w3-bar">
+                            <a class="w3-bar-item"><i  class="fa fa-clock-o w3-padding"></i>1338/7/8 22:30</a>
+                            <a class="w3-bar-item"><i  class="fa fa-eye w3-padding"></i>25</a>
+                        </div>
+                        </div>
+                    <div class="w3-show-inline-block w3-left w3-padding">
+                        <div class="w3-bar">
+                          <!-- <a class="w3-bar-item w3-button w3-black"><i  class="fa fa-link"></i></a>
+                          <a class="w3-bar-item w3-button w3-black"><i  class="fa fa-link"></i></a> -->
+                          <a class="w3-bar-item link"><i  class="fa fa-link w3-padding"></i>لینک اصلی</a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
         </div>
     </div>
 </div>
