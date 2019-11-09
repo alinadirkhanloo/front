@@ -6,7 +6,7 @@ import { DatePickerComponent } from '../../date-picker/date-picker.component';
 
 
 const routes: Routes = [{path: '', component: DashboardComponent},
-{path: 'map', component: DatePickerComponent}];
+{path: 'map', component: MapComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

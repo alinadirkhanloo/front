@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { retry, catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
-import {MapData} from  './../components/charts/map/map.component'
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +9,6 @@ export class ApiService {
 
   constructor(private http:HttpClient) {}
   baseurl="http://192.168.204.170:8001/api/v1/upload"
-  // login_url='http://127.0.0.1:8000/api/login/'
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -51,6 +48,10 @@ export class ApiService {
 
   getTopCategory(){
     return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-category",{headers:this.httpHeaders})
+  }
+
+  getCountryNews(country){
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country},{headers:this.httpHeaders});
   }
 
   handleError(error) {

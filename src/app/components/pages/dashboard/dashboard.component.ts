@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
 
   load_data3(){
     this.apiService.getLocations().subscribe(data => {
-      for (let index = 0; index <15; index++) {
+      for (let index = 0; index <30; index++) {
         this.top_country.push(data['body'][index]);
                 
       }
