@@ -1,123 +1,87 @@
-<!--<div class="full-page">
-<mat-card class="login-card">
-    <mat-card-title>
-        Login to App
-    </mat-card-title>
-    <mat-card-content>
-        <mat-form-field class="login-field">
-            <input matInput placeholder="Email" name="email" [(ngModel)]="email" type="email"/>
-        </mat-form-field>
-        <mat-form-field class="login-field">
-            <input matInput placeholder="Password" name="password" [(ngModel)]="password" type="password"/>
-        </mat-form-field>
-        
-        
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button color="primary"
-                class="login-field" (click)="login(email, password)" type="submit">
-            Login
-        </button>
-    </mat-card-actions>
-</mat-card>
-</div>
-*/////////////////////////////
 
-<div class="login-title row">
-        <div class="column">
-            <img style="width: 250px;height: 75%;" src="../../../../assets/maher_logo1.png"/>
-        </div>
-        <div class="title-column" >
-          <h2 style="margin-top: 10%;">سامانه هوشمند جمع آوری و تحلیل اخبار امنیتی</h2>
-        </div>
-        <div class="column">
-        <img style="width: 130px;height: 85%;" src="../../../../assets/apa-logo.png"/>
+    	  
+    <div class="waveWrapper waveAnimation">
+      <div class="waveWrapperInner bgTop">
+        <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
         </div>
       </div>
       
-
-
-
-<div class="waveWrapper waveAnimation">
-  <div class="waveWrapperInner bgTop">
-    <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
-    </div>
-  </div>
-  
-  <div class="waveWrapperInner bgMiddle">
-    <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
-  </div>
-  
-  <div class="waveWrapperInner bgBottom">
-    <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
-  </div>
-</div>
-<div class="full-page">
-    <mat-card class="login-card">
-        <mat-card-title>
-            ورود
-        </mat-card-title>
-        <mat-card-content>
-            <mat-form-field class="login-field">
-                <input matInput placeholder="ایمیل" name="email" [(ngModel)]="email" type="email"/>
-            </mat-form-field>
-            <mat-form-field class="login-field">
-                <input matInput placeholder="رمز عبور" name="password" [(ngModel)]="password" type="password"/>
-            </mat-form-field>
-            
-            
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button color="primary"
-                    class="login-field" >
-                ورود
-            </button>
-        </mat-card-actions>
-        <a href="#" >رمز خود را فراموش کرده اید؟</a>
-    </mat-card>
-</div>
-
-****************************************************************************
---> 
-
-
-<div class="w3-container w3-cell-row" style="z-index:1000;position:absolute;height:170px; background:#27273c">
-    <div class="w3-container w3-cell w3-center w3-display-container">
-      <img class="w3-img w3-display-middle w3-padding-small" style="width:100%; max-width:150px;" src="../../../../assets/apa-logo.png"/>
-    </div>
-    <div class="w3-container w3-display-container w3-cell w3-center" style="width:50%">
-      <h1 id="title" class="w3-display-bottommiddle w3-text-white">سامانه هوشمند جمع آوری و تحلیل اخبار امنیتی</h1>
-    </div>
-    <div class="w3-container w3-cell w3-cell-middle w3-center w3-display-container">
-      <img class="w3-img w3-display-middle " style="width:100%; max-width:250px;" src="../../../../assets/maher_logo1.png"/>
-    </div>
-  </div>
-  
-  <div class="waveWrapper waveAnimation">
-    <div class="waveWrapperInner bgTop">
-      <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
+      <div class="waveWrapperInner bgMiddle">
+        <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+      </div>
+      
+      <div class="waveWrapperInner bgBottom">
+        <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
       </div>
     </div>
     
-    <div class="waveWrapperInner bgMiddle">
-      <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+    <div class="limiter">
+    <div class="container-login100">
+          <div class="w3-container w3-cell-row">
+              <div class="w3-container w3-cell w3-center w3-display-container">
+                <img id ="apa" class="w3-img w3-display-middle" src="../../../../assets/apa-logo.png"/>
+              </div>
+              <div class="w3-container w3-display-container w3-cell w3-center" style="width:50%">
+                <h1 id="title" class="w3-display-middle w3-text-white">سامانه هوشمند جمع آوری<br> و تحلیل اخبار امنیتی</h1>
+              </div>
+              <div class="w3-container w3-cell w3-cell-middle w3-center w3-display-container">
+                <img id="maher" class="w3-img w3-display-middle " src="../../../../assets/maher_logo1.png"/>
+              </div>
+          </div>
+    
+      <div class="wrap-login100">
+      <!-- <div class="login100-pic js-tilt" data-tilt>
+        <img src="images/img-01.png" alt="IMG">
+      </div> -->
+    
+      <form class="login100-form validate-form">
+        <span class="login100-form-title">
+        ورود
+        </span>
+    
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+        <input class="input100" type="text" name="email" placeholder="ايميل">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </span>
+        </div>
+    
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+        <input class="input100" type="password" name="pass" placeholder="رمز عبور">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+        </span>
+        </div>
+        
+        <div class="container-login100-form-btn">
+        <button class="login100-form-btn" (click)="login(email, password)" type="submit">
+          ورود
+        </button>
+        </div>
+    
+        <div class="text-center p-t-12">
+        <span class="txt1">
+                  فراموشی
+        </span>
+        <a class="txt2" href="#">
+                  نام کاربری/ رمز عبور ؟
+        </a>
+        </div>
+    
+        <!-- <div class="text-center p-t-136">
+        <a class="txt2" href="#">
+          Create your Account
+          <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+        </a>
+        </div> -->
+      </form>
+      </div>
+    </div>
     </div>
     
-    <div class="waveWrapperInner bgBottom">
-      <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
-    </div>
-  </div>
-  
-  
-  <div class="w3-display-container w3-center" style="height:900px;z-index:1100;">
-      <div id="form-container" class="w3-container w3-margin w3-block w3-round w3-display-middle" style="max-width:25%">
-          <form class="w3-container w3-center w3-padding-16">
-              <h1 class="w3-padding-32">ورود</h1>
-              <p><input id="name-input" class="w3-input w3-large" placeholder="ایمیل" type="text"></p>
-              <p><input id="pass-input" class="w3-input w3-large" placeholder="رمز عبور" type="text"></p>
-              <p><button id="login-btn" class=" w3-xlarge w3-button w3-block w3-round-large w3-card-2"
-              (click)="login(email, password)" type="submit">ورود</button></p>
-              <a class="w3-right" href="#">رمز خود را فراموش کرده اید؟</a>
-          </form> 
-      </div>
-  </div>
+    
+        
+    
+    
