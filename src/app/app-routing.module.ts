@@ -9,10 +9,12 @@ import {
 import { 
   RoleGuardService as RoleGuard 
 } from './services/role-guard.service';
+import { TestComponent } from './components/test/test.component';
 
 const routes: Routes = [
   {
-
+    path:'test',component:TestComponent},
+{
     path: '',
     canActivate: [AuthGuard],
     loadChildren: () =>

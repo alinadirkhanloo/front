@@ -49,13 +49,14 @@ import { ChartModule } from 'angular-highcharts';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ColumnChartComponent } from './components/charts/column-chart/column-chart.component';
 import { CylinderComponent } from './components/charts/cylinder/cylinder.component';
+import { TestComponent } from './components/test/test.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,DialogAddComponent, DialogEditComponent
+    NotFoundComponent,DialogAddComponent, DialogEditComponent, TestComponent
   ],
   imports: [
     
