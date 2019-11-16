@@ -141,32 +141,6 @@
 }
 
 
-/* Add a card effect for articles */
-// .card1{
-//   // background: linear-gradient(60deg,#ffa726,#fb8c00);
-//   // color: #fff;
-//   height: 110px;     
-// }
-// .card2{
-//   background: linear-gradient(60deg,#66bb6a,#43a047);
-//   color: #fff;
-// }
-
-// .card4{
-//   background: linear-gradient(60deg,#26c6da,#00acc1);
-//   color: #fff;
-// }
-// .card5 {
-//   background: linear-gradient(0deg,#d9db54,#d5d80a);
-//   color: #fff;
-// }
-
-
-
-
-
-
-
   /* Clear floats after the columns */
   .row:after {
     content: "";
@@ -181,7 +155,7 @@
   }
 
 .country-item{
-  width:30%;
+  width:50%;
   font-size: 20px;
   cursor: pointer;
   

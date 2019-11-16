@@ -1,54 +1,6 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Float four columns side by side */
-  .column {
-    float: left;
-    width: 25%;
-    padding: 0 10px;
-  }
-  
-  /* Remove extra left and right margins, due to padding */
-  .row {margin: 0 -5px;}
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Responsive columns */
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }
-  
-  /* Style the counter cards */
-  .card1,.card2,.card3,.card4 {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    padding: 16px;
-    color:white;
-    text-align: center;
-  }
-  .card1{
-    background: linear-gradient(60deg,#ffa726,#fb8c00);
-  }
-  .card2{
-    background: linear-gradient(60deg,#66bb6a,#43a047);
-  }
-  .card3{
-    background: linear-gradient(60deg,#ef5350,#e53935);
-  }
-  .card4{
-    background: linear-gradient(60deg,#26c6da,#00acc1);
-  }
+.header{
+  border-radius: 5px;
+  margin: 2% 20%;
+  padding: 0 20px;
+  width: 80%;
+}

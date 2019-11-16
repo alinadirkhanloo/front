@@ -42,6 +42,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ColumnChartComponent } from '../../charts/column-chart/column-chart.component';
 import { CylinderComponent } from '../../charts/cylinder/cylinder.component';
+import { WgetsComponent } from '../../common/wgets/wgets.component';
+import { FilterBarComponent } from '../../filter-bar/filter-bar.component';
 
 
 @NgModule({
@@ -51,7 +53,12 @@ import { CylinderComponent } from '../../charts/cylinder/cylinder.component';
     SolidComponent,
     SemiCircleComponent,
     RadialLineComponent,
-    RadialHistogramComponent,ResColumnComponent,DatePickerComponent,ColumnChartComponent,CylinderComponent
+    RadialHistogramComponent,
+    ResColumnComponent,
+    DatePickerComponent,
+    ColumnChartComponent,
+    CylinderComponent,
+    FilterBarComponent
     ],
   imports: [
     CommonModule,

@@ -1,13 +1,9 @@
 <div id="date-container" class="w3-container ">
-        <mat-form-field id="date-form" class="example-full-width">
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-              <button class="date-picker" mat-raised-button (click)="picker.open()"><i class="fa fa-calendar"></i>بازه زمانی</button>
-              <button class="date-picker" mat-raised-button >انتخاب پروفایل</button>
+              <button class="date-picker" mat-raised-button
+              onclick="document.getElementById('date-range').style.display='block'"><i class="fa fa-calendar"></i>بازه زمانی</button>
 </div>
-<!-- 
-<div id="date-range w3-hide">
+
+<!-- <div id="date-range w3-hide">
         <div class="w3-modal-content">
                 <header class="w3-container">
                     <span onclick="document.getElementById('date-range').style.display='none'"
@@ -17,18 +13,88 @@
                 <div class="w3-container">
                        
                         <div class="w3-row">
-                                <div class="w3-col s4 w3-green w3-center">
+                                <div class="w3-col s4 w3-center">
                                         <mat-form-field>
-                                                <input matInput [matDatepicker]="dp" placeholder="Different locale">
-                                                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                                                <mat-datepicker #dp></mat-datepicker>
+                                                <input matInput [matDatepicker]="dp1" placeholder="Different locale">
+                                                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                                                <mat-datepicker #dp1></mat-datepicker>
                                         </mat-form-field>
                                 </div>
-                                <div class="w3-col s4 w3-dark-grey w3-center"><p>s4</p></div>
-                                <div class="w3-col s4 w3-red w3-center"><p>s4</p></div>
-                        </div>                      
-                                              
+                                <div class="w3-col s4 w3-center">
+                                        <mat-form-field>
+                                                <input matInput [matDatepicker]="dp2" placeholder="Different locale">
+                                                <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                                                <mat-datepicker #dp2></mat-datepicker>
+                                        </mat-form-field>
+                                </div>
+                                <div class="w3-col s4 w3-center">
+                                        <mat-radio-group aria-labelledby="example-radio-group-label"
+                                                class="example-radio-group">
+                                                <mat-radio-button class="date-radio-button w3-margin" >
+                                                                امروز
+                                                </mat-radio-button>
+
+                                                <mat-radio-button class="date-radio-button w3-margin" >
+                                                                یک هفته قبل
+                                                </mat-radio-button>
+                                                <mat-radio-button class="date-radio-button w3-margin" >
+                                                                یک ماه قبل
+                                                </mat-radio-button>        
+                                                              
+                                        </mat-radio-group>
+                                </div>
+                        </div>                                
                 </div>
+                <button mat-raised-button class="w3-container"  style="margin: 20px;"color="primary">Prfsdfaimary</button>
         </div>
 </div>
-               -->
+                -->
+
+
+<div id="date-range" class="w3-modal">
+        <div class="w3-modal-content w3-round">
+                <div class="w3-container">
+                        <span onclick="document.getElementById('new-desc').style.display='none'" class="w3-button w3-display-topleft">&times;</span>
+                        <header class="w3-container">
+                                <span onclick="document.getElementById('date-range').style.display='none'"
+                                        class="w3-button w3-display-topleft">&times;</span>
+                                <h2>انتخاب بازه زمانی</h2>
+                        </header>
+                <div class="w3-container">
+
+                <div class="w3-row">
+                        <div class="w3-col s4 w3-center">
+                                <mat-form-field class="modal-fields">
+                                        <input matInput [matDatepicker]="dp1" placeholder="از تاریخ">
+                                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                                        <mat-datepicker #dp1></mat-datepicker>
+                                </mat-form-field>
+                        </div>
+                        <div class="w3-col s4 w3-center">
+                                <mat-form-field class="modal-fields">
+                                        <input matInput [matDatepicker]="dp2" placeholder="تا تاریخ">
+                                        <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                                        <mat-datepicker #dp2></mat-datepicker>
+                                </mat-form-field>
+                        </div>
+                        <div class="w3-col s4 w3-center">
+                                <mat-radio-group aria-labelledby="example-radio-group-label"
+                                        class="example-radio-group">
+                                        <mat-radio-button value="1" class="example-radio-group date-radio-button w3-margin" color="primary">
+                                                امروز
+                                        </mat-radio-button>
+                                        <mat-radio-button value="2" class="example-radio-group date-radio-button w3-margin" >
+                                                یک هفته قبل
+                                        </mat-radio-button>
+                                        <mat-radio-button value="3" class="example-radio-group date-radio-button w3-margin" >
+                                                یک ماه قبل
+                                        </mat-radio-button>        
+                                </mat-radio-group>
+                        </div>
+                </div>                                
+        </div>
+        <button mat-raised-button id="add-filter" class="w3-container"  style="margin:24px 32px;" onclick="document.getElementById('date-range').style.display='none'">اعمال فیلتر</button>
+</div>
+
+            
+            

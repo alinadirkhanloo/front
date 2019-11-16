@@ -1,36 +1,22 @@
-<div class="row">
-  <div class="column">
-    <div class="card1">
-      <h3>Card 1</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card2">
-      <h3>Card 2</h3>
-      <p>Some text</p>
-      <p>Some text</p>
+<div id="header" class="w3-container">
+    <div class="w3-row-padding">
+      <div class="w3-col s4  ">
+        <div class="w3-container w3-round w3-card-2 w3-center w3-margin w3-padding-16 w3-white">
+          <h2>تعداد سایت های خبری</h2>
+          <span class="w3-badge w3-margin-left num"><h1 style="font-size:36px">{{rss_num}}</h1></span>
+        </div>
+      </div>
+      <div class="w3-col s4">
+        <div class="w3-container w3-round w3-card-2 w3-center w3-margin w3-padding-16 w3-white">
+          <h2>تعداد خبرهای دریافت شده</h2>
+          <span class="w3-badge w3-margin-left num"><h1 style="font-size:36px">{{news_num}}</h1></span>
+        </div>
+      </div>
+      <div class="w3-col s4">
+        <div class="w3-container w3-round w3-card-2 w3-margin w3-padding-16 w3-white">
+          <app-date-picker style="width: 100%;"></app-date-picker>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div class="column">
-    <div class="card3">
-      <h3>Card 3</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card4">
-      <h3>Card 4</h3>
-      <p>Some text</p>
-      <p>Some text</p>
-    </div>
-  </div>
-</div>
-
-<h2>Responsive Column Cards</h2>
-<p>Resize the browser window to see the effect.</p>

@@ -29,8 +29,8 @@ loadChart(data){
   
   
   var chart = am4core.create("chartdiv2", am4plugins_wordCloud.WordCloud );
+
   var series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
-  
   series.accuracy = 4;
   series.step = 15;
   series.rotationThreshold = 0.7;
@@ -44,7 +44,6 @@ loadChart(data){
   
   series.dataFields.word = "tag";
   series.dataFields.value = "weight";
-  
   series.colors = new am4core.ColorSet();
   series.colors.passOptions = {}; // makes it loop
    

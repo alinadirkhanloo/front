@@ -1,9 +1,16 @@
 @font-face { font-family: mitra; 
     src: url('../../../assets/Far_Mitra.ttf'); font-weight: 400;
   } 
+*{
+    font-family: mitra;
+    font-size: 18px;
+}
 
+#date-container{
+    margin-top: 35px;
+}
 
-  #date-container .mat-form-field{
+#date-container .mat-form-field{
     width: 0;
 
 }
@@ -37,7 +44,7 @@
 }
 
 #date-container .mat-raised-button{
-    width: 45%;
+    width: 100%;
     margin: 0 4px;
     // padding: 18px 30px;
     background: #6d0577;
@@ -54,6 +61,27 @@
 #date-container::ng-deep .mat-button-wrapper {
     font-family: mitra!important;
     font-size: 24px;
+}
+.modal-fields{
+    margin-top: 25%!important;
+}
+.date-item{
+    text-align: right;
+}
+::ng-deep .mat-radio-outer-circle {
+    border-color: #a411df!important;
+}
+::ng-deep .mat-radio-inner-circle {
+    background-color: #a411df!important;
+}
+.date-radio-button{
+    display: block;
+}
+
+#add-filter{
+    font-size: 18px;
+    background: #6d0577;
+    color: #fff;
 }
 
 @media screen and (max-width:1100px) {
