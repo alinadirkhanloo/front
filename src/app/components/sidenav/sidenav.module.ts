@@ -41,10 +41,12 @@ import { RouterModule } from '@angular/router';
 import { DialogAddComponent } from '../table/dialogs/dialog-add/dialog-add.component';
 import { DialogEditComponent } from '../table/dialogs/dialog-edit/dialog-edit.component';
 import { DatePickerComponent ,PERSIAN_DATE_FORMATS} from '../date-picker/date-picker.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [SidenavComponent],
   imports: [
+    AngularFontAwesomeModule,
     CommonModule,
     MatAutocompleteModule,
     MatBadgeModule,

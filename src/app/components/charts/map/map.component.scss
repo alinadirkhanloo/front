@@ -1,13 +1,8 @@
-@font-face { font-family: mitra; 
-  src: url('../../../../assets/Far_Mitra.ttf'); font-weight: 400;
-} 
-*{
-  font-family: mitra;
-}
+
 #chartdiv1 {
     background: #fff;
     width: 100%;
-    height: 550px;
+    height: 510px;
     // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     
@@ -42,30 +37,30 @@ li{
 li a{
   font-size: 18px;
   cursor: pointer;
-  i{
+  svg{
     font-size: 18px;
   }
 }
-#new-desc{
-  position: absolute;
-}
+// #new-desc{
+//   position: absolute;
+// }
 
-#new-desc .link{
+#map-new-desc .link{
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   background: #6d0577;
   color: #fff;
   border-radius: 5px;
   padding-left: 40px;
 }
-#new-desc .link:hover{
+#map-new-desc .link:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   background: #9833a1;
   cursor: pointer;
 }
-#new-desc a{
+#map-new-desc a{
   font-size: 18px;
 }
-#new-desc i{
+#map-new-desc svg{
   font-size: 18px;
 }

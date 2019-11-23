@@ -1,4 +1,76 @@
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<div id="chartdiv9"></div>	
+<!-- <div id="chartdiv9"></div>	 -->
+
+
+<div class="w3-container">
+    <div id="chartdiv9" style="direction: ltr"></div>
+    <div id="news-detail" class="w3-container w3-display-container w3-white w3-animate-top w3-hide" 
+    style="height: 700px;direction: rtl">
+        
+        <span (click)="show_chart()"
+            class="w3-button w3-large w3-display-topleft">&times;</span>
+
+        <h2 class="w3-container"><span matBadge="4" matBadgeOverlap="false"
+            matBadgeColor="accent">{{platform_name}}</span>
+        </h2>
+        <hr>
+
+
+        <div class="w3-cell-row w3-white">
+
+            <div class="w3-container w3-cell w3-white"  style="width:95%;">
+                <header class="w3-container w3-bottombar">
+                    <h2 style="margin-bottom:15px;"><span class="w3-badge badge w3-xlarge w3-padding w3-left w3-card">{{count}}</span>عناوین اخبار</h2>
+                </header>
+                
+                <div class="w3-container" style="overflow: hidden;">
+                    <ul id="news-list" class="w3-ul">
+                        <li dir="ltr" class="w3-hover-light-grey"  *ngFor="let item of news;let i=index">{{item.title}}
+                            <a class="w3-bar-item w3-left" (click)="getNews_info(i)" onclick="document.getElementById('chart9-new-desc').style.display='block'">
+                                <i  class="fa fa-chevron-down"></i> بیشتر</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+<div id="chart9-new-desc" class="w3-modal">
+    <div class="w3-modal-content" style="width: 90%;margin-bottom: 70px">
+        <div class="w3-container" *ngIf="!!info" style="margin-left: 10px;">
+            <span onclick="document.getElementById('chart9-new-desc').style.display='none'" class="w3-button w3-display-topleft">&times;</span>
+
+            <header class="w3-container">
+                <h2 dir="ltr">{{info.title}}</h2>
+            </header>
+            <hr>
+
+            <div class="w3-cell-row w3-white">
+
+                <div dir="ltr" class="w3-container w3-white">
+                    <p class="w3-large">{{info.text}}</p>
+                </div>
+                <div dir="rtl" class="w3-container">
+                    <div class="w3-show-inline-block w3-padding">
+                        <div class="w3-bar">
+                            <a class="w3-bar-item"><i  class="fa fa-clock-o w3-padding"></i>{{info.date}}</a>
+                            <!-- <a class="w3-bar-item"><i  class="fa fa-eye w3-padding"></i>25</a> -->
+                        </div>
+                        </div>
+                    <div class="w3-show-inline-block w3-left w3-padding">
+                        <div class="w3-bar">
+                          <!-- <a class="w3-bar-item w3-button w3-black"><i  class="fa fa-link"></i></a>
+                          <a class="w3-bar-item w3-button w3-black"><i  class="fa fa-link"></i></a> -->
+                          <a class="w3-bar-item link" href="{{info.link}}" target="_blank"><i  class="fa fa-link w3-padding"></i>لینک اصلی</a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -42,8 +42,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ColumnChartComponent } from '../../charts/column-chart/column-chart.component';
 import { CylinderComponent } from '../../charts/cylinder/cylinder.component';
-import { WgetsComponent } from '../../common/wgets/wgets.component';
 import { FilterBarComponent } from '../../filter-bar/filter-bar.component';
+import { FilterProfileComponent } from '../../filter-profile/filter-profile.component';
+import { WidgetsComponent } from '../../common/widgets/widgets.component';
+import { Map2Component } from '../../charts/map2/map2.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 @NgModule({
@@ -58,7 +61,10 @@ import { FilterBarComponent } from '../../filter-bar/filter-bar.component';
     DatePickerComponent,
     ColumnChartComponent,
     CylinderComponent,
-    FilterBarComponent
+    FilterBarComponent,
+    FilterProfileComponent,
+    WidgetsComponent,
+    Map2Component
     ],
   imports: [
     CommonModule,
@@ -88,6 +94,7 @@ import { FilterBarComponent } from '../../filter-bar/filter-bar.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    AngularFontAwesomeModule,
   ],
   providers:[    { provide: DateAdapter, useClass: DatePickerComponent, deps: [MAT_DATE_LOCALE] },
   { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS }

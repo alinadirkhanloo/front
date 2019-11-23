@@ -6,26 +6,14 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4geodata_worldHigh from "@amcharts/amcharts4-geodata/worldHigh";
 import { ApiService } from 'src/app/services/api.service';
 import { eventTarget } from '@amcharts/amcharts4/.internal/core/utils/DOM';
+import am4themes_material from '@amcharts/amcharts4/themes/material'
 
-export interface MapData {
-  title: string;
-  customData:number
-}
 export interface News {
   text: string;
   link: string;
   title: string;
   date: string;
 } 
-
-export interface Country {
-  src: string;
-  name: string;
-  id: string;
-} 
-
-
-
 
 @Component({
   selector: 'app-map',
@@ -100,7 +88,7 @@ export class MapComponent implements OnInit {
 
 load_map(res_data){
   am4core.useTheme(am4themes_animated);
-
+  am4core.useTheme(am4themes_material);
   // Create map instance
   var chart = am4core.create("chartdiv1", am4maps.MapChart);
 
@@ -117,7 +105,7 @@ load_map(res_data){
     property: "fill",
     target: polygonSeries.mapPolygons.template,
     min: chart.colors.getIndex(1).brighten(1),
-    max: chart.colors.getIndex(1).brighten(-0.3)
+    max: chart.colors.getIndex(1).brighten(-0.5)
   });
 
   // Make map load polygon data (state shapes and names) from GeoJSON
@@ -134,7 +122,7 @@ load_map(res_data){
   heatLegend.width = am4core.percent(20);
   heatLegend.marginLeft= am4core.percent(8);
   heatLegend.minValue = 0;
-  heatLegend.maxValue = 4000;
+  heatLegend.maxValue = 100;
 
   // Set up custom heat map legend labels using axis ranges
   var minRange = heatLegend.valueAxis.axisRanges.create();

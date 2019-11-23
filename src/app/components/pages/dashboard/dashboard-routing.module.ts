@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { MapComponent } from '../../charts/map/map.component';
-import { DatePickerComponent } from '../../date-picker/date-picker.component';
-import { ResColumnComponent } from '../../common/res-column/res-column.component';
-import { FilterBarComponent } from '../../filter-bar/filter-bar.component';
+import { PureComponent } from '../../charts/pure/pure.component';
+import { Map2Component } from '../../charts/map2/map2.component';
 
 
 const routes: Routes = [{path: '', component: DashboardComponent},
-{path: 'map', component: FilterBarComponent}];
+{path: 'map', component: Map2Component}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

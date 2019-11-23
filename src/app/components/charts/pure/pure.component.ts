@@ -4,6 +4,9 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4plugins_forceDirected from "@amcharts/amcharts4/plugins/forceDirected"
 import { ApiService } from 'src/app/services/api.service';
+import { News } from '../map/map.component';
+
+
 
 @Component({
   selector: 'app-pure',
@@ -13,6 +16,12 @@ import { ApiService } from 'src/app/services/api.service';
 export class PureComponent implements OnInit {
 
   private recived_data=[]
+  private news=[]
+  private info:News
+  private count=0;
+  category_name;
+
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -21,35 +30,52 @@ export class PureComponent implements OnInit {
   }
 
 loadChart(data){
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
 
 
 
-var chart = am4core.create("chartdiv3", am4plugins_forceDirected.ForceDirectedTree);
-chart.legend = new am4charts.Legend();
+    var chart = am4core.create("chartdiv3", am4plugins_forceDirected.ForceDirectedTree);
+    chart.legend = new am4charts.Legend();
 
-var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+    var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
 
-networkSeries.data = data
+    networkSeries.data = data
 
-networkSeries.dataFields.linkWith = "linkWith";
-networkSeries.dataFields.name = "text";
-networkSeries.dataFields.id = "text";
-networkSeries.dataFields.value = "weight";
+    networkSeries.dataFields.linkWith = "linkWith";
+    networkSeries.dataFields.name = "text";
+    networkSeries.dataFields.id = "text";
+    networkSeries.dataFields.value = "weight";
 
-networkSeries.nodes.template.tooltipText = "{text}";
-networkSeries.nodes.template.fillOpacity = 1;
+    networkSeries.nodes.template.tooltipText = "{text}";
+    networkSeries.nodes.template.fillOpacity = 1;
 
-networkSeries.nodes.template.label.text = "{text}"
-networkSeries.fontSize =14;
-networkSeries.maxLevels = 4;
-networkSeries.maxRadius = am4core.percent(15);
-networkSeries.minRadius = am4core.percent(3);
-networkSeries.manyBodyStrength = -16;
-networkSeries.nodes.template.label.hideOversized = true;
-networkSeries.nodes.template.label.truncate = true;
+    networkSeries.nodes.template.label.text = "{text}"
+    networkSeries.fontSize =14;
+    networkSeries.maxLevels = 4;
+    networkSeries.maxRadius = am4core.percent(15);
+    networkSeries.minRadius = am4core.percent(3);
+    networkSeries.manyBodyStrength = -16;
+    networkSeries.nodes.template.label.hideOversized = true;
+    networkSeries.nodes.template.label.truncate = true;
+
+
+    networkSeries.nodes.template.events.on("hit", (ev)=>{
+    this.category_name = ev.target.dataItem.dataContext["text"].toUpperCase( )
+    this.CategoryNews(this.category_name);
+  
+      var x = document.getElementById("category-news-detail");
+      var y = document.getElementById("chartdiv3");
+      if( x.className.indexOf("w3-show")==-1){  
+        x.className+=" w3-show"
+        y.className+=" w3-hide"
+      }else{
+        x.className=x.className.replace(" w3-show","");
+        y.className=y.className.replace(" w3-hide","");
+      }
+  
+  })
 
   }
 
@@ -59,15 +85,25 @@ networkSeries.nodes.template.label.truncate = true;
     });
   }
   
-  preProc(data){
-    let temp=[]
-    for(var item in data){
-      temp.push({
-          name: data[item].text,
-          value: data[item].weight,
-      })
-    }
-    return temp
+  getNews_info(index){
+    this.info=this.news[index]
   }
+  
+  show_chart(){
+    var x = document.getElementById("category-news-detail");
+    var y = document.getElementById("chartdiv3");
+    x.className=x.className.replace(" w3-show","");
+    y.className=y.className.replace(" w3-hide","");
+  }
+  
+  CategoryNews(category){
+
+    this.apiService.getCategoryNews(category.toLowerCase()).subscribe((data: {}) => {
+      this.news=data['body'].posts;
+      this.count=data['body'].post_count;
+
+    });
+  }
+  
 
 }

@@ -1,0 +1,41 @@
+
+<div class="w3-section">
+    <div class="w3-container w3-card w3-margin">
+        <div class="w3-col s3 ">
+            <div id="top-country" class="w3-container  w3-round chart" style="height:620px;margin:10px; overflow: hidden;">
+                <div class="w3-panel chart-title w3-border-purple w3-rightbar">
+                    <h2>کشورهای پرتهدید
+                        <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+                    </h2>
+                </div>
+                <br>
+                <!-- <ul class="w3-ul">
+                    <li class="w3-border-0 w3-right country-item" onclick="open_map_detail()" *ngFor="let item of top_country;let i=index" >{{item.title}}<i> . {{i+1}}</i></li>
+                </ul> -->
+                <ul class="w3-ul" id="country-list">
+                <li class="w3-bar" *ngFor="let item of top_country;let i=index">
+                    <span  class="w3-bar-item w3-button w3-white w3-xlarge w3-right">{{item.count}}</span>
+                    <img src="../../../../assets/flags/4x3/{{item.id}}.svg" class="w3-bar-item w3-circle w3-hide-small" style="width:65px">
+                    <div class="w3-bar-item">
+                    <span class="w3-large">{{item.name}}</span>
+                    
+                    </div>
+                </li>
+                </ul>
+        </div>
+    </div>
+      
+
+
+        <div class="w3-col s9">
+            <div class="w3-round chart" style="height:620px;margin:10px;">
+            <div class="w3-container w3-round chart-title">
+                <div  class="w3-panel w3-border-purple w3-rightbar ">
+                    <h2>پراکندگی جغرافیایی</h2>
+                </div>
+            </div>
+                <app-map></app-map>
+            </div>
+        </div>
+    </div>
+</div>      

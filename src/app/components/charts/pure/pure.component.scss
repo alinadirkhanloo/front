@@ -2,7 +2,7 @@
 #chartdiv3 {
     width: 100%;
     max-width: 100%;
-    height:400px;
+    height:525px;
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     // background: linear-gradient(0deg,#fff,#d57aff);
     border-radius: 5px;
@@ -11,3 +11,50 @@
   #chartdiv3::ng-deep g{
     font-size: 18px;
   }
+
+.badge{
+  background: #6d0577;
+}
+
+#news-list{
+  overflow-y: scroll;
+    height: 345px;
+    width: 105%;
+    padding-left: 50px;
+    padding-right: 15px;
+}
+
+li{
+  padding: 15px;
+  font-size: 18px;
+}
+li a{
+  font-size: 18px;
+  cursor: pointer;
+  i{
+    font-size: 18px;
+  }
+}
+// #new-desc{
+//   position: absolute;
+// }
+
+#chart3-new-desc .link{
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  background: #6d0577;
+  color: #fff;
+  border-radius: 5px;
+  padding-left: 40px;
+}
+#chart3-new-desc .link:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background: #9833a1;
+  cursor: pointer;
+}
+#chart3-new-desc a{
+  font-size: 18px;
+}
+#chart3-new-desc i{
+  font-size: 18px;
+}

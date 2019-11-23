@@ -6,10 +6,6 @@
     font-size: 18px;
 }
 
-#date-container{
-    margin-top: 35px;
-}
-
 #date-container .mat-form-field{
     width: 0;
 
@@ -45,14 +41,11 @@
 
 #date-container .mat-raised-button{
     width: 100%;
-    margin: 0 4px;
-    // padding: 18px 30px;
     background: #6d0577;
     color: #fff;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 32px;
     i{
-        margin: 5px 0;
+        margin:5px 0 5px 15px;
         float: right;
     }
     

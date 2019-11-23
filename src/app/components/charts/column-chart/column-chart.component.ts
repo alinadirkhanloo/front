@@ -3,6 +3,8 @@ import * as am4core from "@amcharts/amcharts4/core";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import { ApiService } from 'src/app/services/api.service';
+import { News } from '../map/map.component';
+
 
 @Component({
   selector: 'app-column-chart',
@@ -12,43 +14,63 @@ import { ApiService } from 'src/app/services/api.service';
 export class ColumnChartComponent implements OnInit {
  
   private recived_data=[]
+  private news=[]
+  private info:News
+  private count=0;
+  platform_name;
+
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.load_data();
-    setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 1000)
+    setTimeout(()=>{ this.loadChart(this.recived_data)}, 2000)
   }
 
 loadChart(data) {
 
- // Themes begin
- am4core.useTheme(am4themes_animated);
- // Themes end
- 
- // Create chart instance
- var chart = am4core.create("chartdiv9", am4charts.XYChart);
- 
- // Add data
- chart.data = data.reverse()
- 
- // Create axes
- var yAxis = chart.yAxes.push(new am4charts.CategoryAxis());
- yAxis.dataFields.category = "text";
- yAxis.renderer.grid.template.location = 0;
- yAxis.renderer.labels.template.fontSize = 16;
- yAxis.renderer.minGridDistance = 10;
- 
- var xAxis = chart.xAxes.push(new am4charts.ValueAxis());
- 
- // Create series
- var series = chart.series.push(new am4charts.ColumnSeries());
- series.dataFields.valueX = "weight";
- series.dataFields.categoryY = "text";
- series.columns.template.tooltipText = "{categoryY}: [bold]{valueX}[/]";
- series.columns.template.strokeWidth = 0;
- 
+  // Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  // Create chart instance
+  var chart = am4core.create("chartdiv9", am4charts.XYChart);
+  
+  // Add data
+  chart.data = data.reverse()
+  
+  // Create axes
+  var yAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+  yAxis.dataFields.category = "text";
+  yAxis.renderer.grid.template.location = 0;
+  yAxis.renderer.labels.template.fontSize = 16;
+  yAxis.renderer.minGridDistance = 10;
+  
+  var xAxis = chart.xAxes.push(new am4charts.ValueAxis());
+  
+  // Create series
+  var series = chart.series.push(new am4charts.ColumnSeries());
+  series.dataFields.valueX = "weight";
+  series.dataFields.categoryY = "text";
+  series.columns.template.tooltipText = "{categoryY}: [bold]{valueX}[/]";
+  series.columns.template.strokeWidth = 0;
+  
+  series.columns.template.events.on("hit", (ev)=>{
+  this.platform_name = ev.target.dataItem.dataContext["text"].toUpperCase( )
+  this.getPlatformNews(this.platform_name);
 
- 
+    var x = document.getElementById("news-detail");
+    var y = document.getElementById("chartdiv9");
+    if( x.className.indexOf("w3-show")==-1){  
+      x.className+=" w3-show"
+      y.className+=" w3-hide"
+    }else{
+      x.className=x.className.replace(" w3-show","");
+      y.className=y.className.replace(" w3-hide","");
+    }
+
+})
+  
  // Add ranges
  function addRange(label, start, end, color) {
    var range = yAxis.axisRanges.create();
@@ -80,22 +102,31 @@ loadChart(data) {
 
   }
 
-  load_data(){
-    this.apiService.getTopPlatforms().subscribe(data => {
-      this.recived_data=data['body'];
-    });
-  }
-  
-  preProc(data){
-    let temp=data
-    // for(var item in data){
-    //   temp.push({
-    //       name: data[item].text,
-    //       value: data[item].weight,
-    //   })
-    // }
-    return temp
-  }
+load_data(){
+  this.apiService.getTopPlatforms().subscribe(data => {
+    this.recived_data=data['body'];
+    this.count=this.recived_data.length;
+    
+  });
+}
+
+getNews_info(index){
+  this.info=this.news[index]
+}
+
+show_chart(){
+  var x = document.getElementById("news-detail");
+  var y = document.getElementById("chartdiv9");
+  x.className=x.className.replace(" w3-show","");
+  y.className=y.className.replace(" w3-hide","");
+}
+
+getPlatformNews(platform){
+  this.apiService.getPlatformNews(platform.toLowerCase()).subscribe((data: {}) => {
+    this.news=data['body'].posts;
+    this.count=data['body'].post_count;
+  });
+}
 
 }
 

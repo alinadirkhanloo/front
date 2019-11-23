@@ -50,9 +50,20 @@ export class ApiService {
     return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-category",{headers:this.httpHeaders})
   }
 
+
+  getCategoryNews(category){
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/category-news",{category},{headers:this.httpHeaders}); 
+  }
+
+
   getCountryNews(country){
     return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country},{headers:this.httpHeaders});
   }
+
+  getPlatformNews(platform){
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/platform-news",{platform},{headers:this.httpHeaders}); 
+  }
+
 
   handleError(error) {
     let errorMessage = '';

@@ -1,0 +1,42 @@
+@font-face { font-family: Arshia; 
+    src: url('../../../../assets/Arshia/Arshia_0.ttf'); font-weight: 800;
+  } 
+*{
+    font-family: mitra
+}
+h2{
+    color: #000;
+    
+}
+h1{
+    color: #604666; 
+    font-family: Arshia!important;
+    font-size: 85px;
+}
+
+#widget-container{
+   i{
+    color: #604666;
+   }
+}
+#w1{
+    // background-color: rgb(218, 7, 87);
+    // background-image: url('../../../../assets/imgs/wave-mid.png');
+    // border-bottom: 6px solid #6d0577!important;
+    border-top: 6px solid #6d0577!important
+}
+#w2{
+    // border-bottom: 6px solid #6d0577!important;
+    border-top: 6px solid #6d0577!important
+}
+#w3{
+    // border-bottom: 6px solid #6d0577!important;
+    border-top: 6px solid #6d0577!important
+}
+#w4{
+    // border-bottom: 6px solid #6d0577!important;
+    border-top: 6px solid #6d0577!important
+}
+.w3-quarter svg{
+    color: #604666;
+}

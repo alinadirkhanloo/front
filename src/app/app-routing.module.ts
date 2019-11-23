@@ -10,11 +10,11 @@ import {
   RoleGuardService as RoleGuard 
 } from './services/role-guard.service';
 import { TestComponent } from './components/test/test.component';
-import { WgetsComponent } from './components/common/wgets/wgets.component';
+// import { WgetsComponent } from './components/common/wgets/wgets.component';
 
 const routes: Routes = [
-  {
-    path:'test',component:WgetsComponent},
+  // {
+    // path:'test',component:WgetsComponent},
 {
     path: '',
     canActivate: [AuthGuard],

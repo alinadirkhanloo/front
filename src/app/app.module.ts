@@ -50,16 +50,18 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { ColumnChartComponent } from './components/charts/column-chart/column-chart.component';
 import { CylinderComponent } from './components/charts/cylinder/cylinder.component';
 import { TestComponent } from './components/test/test.component';
-import { WgetsComponent } from './components/common/wgets/wgets.component';
-import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
-
+import { FilterProfileComponent } from './components/filter-profile/filter-profile.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { Map2Component } from './components/charts/map2/map2.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,DialogAddComponent, DialogEditComponent, TestComponent, WgetsComponent
-    
+    NotFoundComponent,
+    DialogAddComponent, 
+    DialogEditComponent, 
+    TestComponent
   ],
   imports: [
     
