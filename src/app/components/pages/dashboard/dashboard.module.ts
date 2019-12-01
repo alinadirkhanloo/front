@@ -47,6 +47,7 @@ import { FilterProfileComponent } from '../../filter-profile/filter-profile.comp
 import { WidgetsComponent } from '../../common/widgets/widgets.component';
 import { Map2Component } from '../../charts/map2/map2.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    MatCheckboxModule,
     AngularFontAwesomeModule,
   ],
   providers:[    { provide: DateAdapter, useClass: DatePickerComponent, deps: [MAT_DATE_LOCALE] },

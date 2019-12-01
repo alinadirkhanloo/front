@@ -23,11 +23,29 @@ export const PERSIAN_DATE_FORMATS = {
 })
 export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> {
 
+  disabled = true;
+  start_date = new Date();
+  end_date=new Date();
+  x:string;
+  isSubmitted = false;
   constructor() {
     super();
     super.setLocale("fa");
   }
 
+  submitForm(form: NgForm) {
+    this.isSubmitted = true;
+    if(!form.valid) {
+      return false;
+    } else {
+    alert(JSON.stringify(form.value))
+    }
+  }
+
+
+
+
+  ///// jalali //////
   getYear(date: jalaliMoment.Moment): number {
     return this.clone(date).jYear();
   }

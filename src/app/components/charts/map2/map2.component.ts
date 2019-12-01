@@ -23,7 +23,7 @@ export class Map2Component implements OnInit {
     {value: 'ar',   key: 'argentina'},
     {value: 'io',   key: 'indian'},
     {value: 'tr',   key: 'turkey'},
-    {value: 'Iir',   key: 'iran'},
+    {value: 'ir',   key: 'iran'},
     {value: 'cf',   key: 'african'},
     {value: 'kp',   key: 'korea'},
     {value: 'ma',   key: 'morocco'},
