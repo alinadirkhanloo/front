@@ -1,13 +1,27 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, Output, EventEmitter } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
+import { DataSharingService } from './data-sharing.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  start_date:string
+  end_date:string
+  constructor(private http:HttpClient,private data_sharing:DataSharingService) {
+    const sd=this.data_sharing.start_date;
+    const ed=this.data_sharing.end_date;
+    sd.subscribe((date:string)=>{
+      this.start_date=date
+    })
+    ed.subscribe((date:string)=>{
+      this.end_date=date
+    })
+  }
 
-  constructor(private http:HttpClient) {}
+
+
   baseurl="http://192.168.204.170:8001/api/v1/upload"
 
   public isAuthenticated(): boolean {
@@ -35,7 +49,14 @@ export class ApiService {
   }
 
   getTOpWords(){
-    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-words",{headers:this.httpHeaders})
+    const params = new HttpParams({
+      fromObject: {
+        start_date: this.start_date,
+        end_date: this.end_date,
+      }
+    });
+    console.log(params)
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-words",{headers:this.httpHeaders,params:params})
   }
 
   getSentiment(){
@@ -55,9 +76,13 @@ export class ApiService {
     return this.http.post<any>("http://192.168.204.170:8001/api/v1/category-news",{category},{headers:this.httpHeaders}); 
   }
 
-
   getCountryNews(country){
-    return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country},{headers:this.httpHeaders});
+    var start=this.start_date;
+    var end=this.end_date;
+    this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country:country,start_date:'1398/08/01',end_date:end},{headers:this.httpHeaders}).subscribe((data: {}) => {
+      console.log(data);
+    });
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country,start,end},{headers:this.httpHeaders});
   }
 
   getPlatformNews(platform){

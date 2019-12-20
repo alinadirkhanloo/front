@@ -53,6 +53,7 @@ import { TestComponent } from './components/test/test.component';
 import { FilterProfileComponent } from './components/filter-profile/filter-profile.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Map2Component } from './components/charts/map2/map2.component';
+import { DataSharingService } from './services/data-sharing.service';
 
 
 @NgModule({
@@ -101,7 +102,7 @@ import { Map2Component } from './components/charts/map2/map2.component';
     MatTooltipModule,
     MatTreeModule,
   ],
-  providers: [JwtHelperService],
+  providers: [JwtHelperService,DataSharingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

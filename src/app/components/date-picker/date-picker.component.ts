@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import * as jalaliMoment from "jalali-moment";
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { ApiService } from 'src/app/services/api.service';
+
 
 export const PERSIAN_DATE_FORMATS = {
   parse: {
@@ -14,35 +18,75 @@ export const PERSIAN_DATE_FORMATS = {
   }
 };
 
-
+export interface MDate{
+  strt_date:string;
+  end_date:string;
+}
 
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss']
+  styleUrls: ['./date-picker.component.scss'],
 })
-export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> {
+export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> implements OnInit {
 
-  disabled = true;
-  start_date = new Date();
-  end_date=new Date();
-  x:string;
-  isSubmitted = false;
-  constructor() {
+  public dateForm:FormGroup;
+  private date:MDate;
+  private disabled = true;
+  private isSubmitted = false;
+  private radio_date:string;
+
+  constructor(private data_sharing:DataSharingService,private apiService: ApiService) {
     super();
     super.setLocale("fa");
   }
+  ngOnInit() {
+    this.dateForm = new FormGroup({
+      start_date: new FormControl(jalaliMoment),
+      end_date: new FormControl(jalaliMoment),
+    });
+      
+  } 
 
-  submitForm(form: NgForm) {
-    this.isSubmitted = true;
-    if(!form.valid) {
-      return false;
-    } else {
-    alert(JSON.stringify(form.value))
+  public dateFilter = () => {
+    if(this.disabled){
+      this.selectRadioDate()
+    }
+    else{
+      this.data_sharing.start_date.next(this.format(this.dateForm.value["start_date"],"jYYYY/jMM/jDD"));
+      this.data_sharing.end_date.next(this.format(this.dateForm.value["end_date"],"jYYYY/jMM/jDD"));
+      
     }
   }
 
+  selectRadioDate(){
+    // let v=this.format(this.today(),"jYYYY/jMM/jDD");
+    // this.data_sharing.start_date.next(v);
+    // this.data_sharing.end_date.next(v);
+    /*
+    switch (this.radio_date) {  
+      case 'today':
 
+        let v=this.format(this.today(),"jYYYY/jMM/jDD");
+        this.data_sharing.start_date.next(v);
+        this.data_sharing.end_date.next(v);
+
+
+        break;  
+      case 'last-weak':  
+        console.log('last_weak------------');
+        break; 
+      case 'last-month':  
+        console.log('last_month------------');
+        break; 
+      default: 
+      console.log('today------------'); 
+         
+     }*/
+    //  this.apiService.getCountryNews('iran').subscribe((data: {}) => {
+  // console.log(v)
+    // });
+  }
 
 
   ///// jalali //////
@@ -55,12 +99,14 @@ export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> {
   }
 
   getDate(date: jalaliMoment.Moment): number {
+    
     return this.clone(date).jDate();
   }
 
   getDayOfWeek(date: jalaliMoment.Moment): number {
     return this.clone(date).day();
   }
+
 
   getMonthNames(style: "long" | "short" | "narrow"): string[] {
     switch (style) {
@@ -146,6 +192,7 @@ export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> {
     if (!this.isValid(date)) {
       throw Error("JalaliMomentDateAdapter: Cannot format invalid date.");
     }
+    // console.log('8--',displayFormat,date,date.format(displayFormat));  
     return date.format(displayFormat);
   }
 

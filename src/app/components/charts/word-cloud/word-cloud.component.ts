@@ -1,26 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,SimpleChanges } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4plugins_wordCloud from "@amcharts/amcharts4/plugins/wordCloud";
 import { ApiService } from 'src/app/services/api.service';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-word-cloud',
   templateUrl: './word-cloud.component.html',
-  styleUrls: ['./word-cloud.component.scss']
+  styleUrls: ['./word-cloud.component.scss'],
+  inputs:[`startdate`,`enddate`],
 })
 export class WordCloudComponent implements OnInit {
   private recived_data=[]
-  constructor(private apiService: ApiService) { }
-
+  constructor(private apiService: ApiService,private data_shared:DataSharingService) { }
+  start=this.data_shared.start_date;
+  end=this.data_shared.end_date;
   ngOnInit() {
-
-    this.load_data();
-    setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 1000)
-    
-
+    this.loadComponent(this.start,this.end)
   }
 
+ngOnChanges(changes: SimpleChanges){
+  if(!changes['startdate'].firstChange && changes['enddate']==undefined){
+    this.start=changes['startdate'].currentValue;
+    this.loadComponent(this.start,this.end)
+    console.log('++')
+  }else if(!changes['startdate'].firstChange && !changes['enddate'].firstChange){
+      this.start=changes['startdate'].currentValue;
+      this.end=changes['enddate'].currentValue;
+      this.loadComponent(this.start,this.end)
+      console.log('--')
+  }else if(changes['startdate']==undefined && !changes['enddate'].firstChange){
+    // this.start=changes['startdate'].currentValue;
+    this.end=changes['enddate'].currentValue;
+    this.loadComponent(this.start,this.end)
+    console.log('**')
+}    
+}
+
+loadComponent(start,end){
+  this.load_data();
+  setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 1000)
+}
 
 
 loadChart(data){
@@ -59,8 +80,10 @@ loadChart(data){
 
 load_data(){
   this.apiService.getTOpWords().subscribe(data => {
+    console.log(data)
     this.recived_data=data['body'];
   });
+  
 }
 
 preProc(data){

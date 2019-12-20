@@ -1,25 +1,18 @@
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
-
 <div class="table-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar  class="example-toolbar  w3-display-container">
     <button mat-icon-button (click)="snav.toggle()">
       <i class="fa fa-bars"></i>
     </button>
     <h1 class="example-app-name">سامانه تحلیل خبر</h1>
-  <div class="w3-container w3-display-left">
-    <div class="w3-container w3-cell logo">
-      <h1 class="w3-text w3-cell w3-xxlarge w3-cell-middle w3-padding-24">مرکز تخصصی آپای دانشگاه زنجان</h1>
-    </div>
+    <div class="w3-container w3-display-left">
+      <div class="w3-container w3-cell logo">
+        <h1 class="w3-text w3-cell w3-xxlarge w3-cell-middle w3-padding-24">مرکز تخصصی آپای دانشگاه زنجان</h1>
+      </div>
 
-    <div class="w3-container w3-cell logo">
-      <img class="w3-img w3-cell" src="../../../assets/apa-logo2.png"/>
+      <div class="w3-container w3-cell logo">
+        <img class="w3-img w3-cell" src="../../../assets/apa-logo2.png"/>
+      </div>
     </div>
-<!--
-    <h1 class="w3-text">مرکز تخصصی آپای دانشگاه زنجان</h1>
-    
-    
-       <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  جستوجو"> -->
-  </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -27,46 +20,8 @@
     <mat-sidenav #snav [mode]="over"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-          <a mat-list-item [routerLink]="['dashboard']" ><i class="fa fa-dashboard"></i>داشبورد</a>
-          <a mat-list-item [routerLink]="['users']" ><i class="fa fa-user"></i>کاربران</a>
-          <mat-accordion mat-list-item>
-            <mat-expansion-panel class="item">
-              <mat-expansion-panel-header>
-
-                <mat-panel-title><i class="fa fa-user"></i>
-                  کشور
-                </mat-panel-title>
-
-                <!-- <mat-panel-description>
-                  Type your name and age
-                </mat-panel-description> -->
-              </mat-expansion-panel-header>
-              <a mat-list-item [routerLink]="['dashboard']" ><i class="fa fa-dashboard"></i>داشبورد</a>
-          
-
-            </mat-expansion-panel>
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-
-                <mat-panel-title><i class="fa fa-user"></i>
-                    پلتفرم
-                </mat-panel-title>
-
-                <!-- <mat-panel-description>
-                  Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                </mat-panel-description> -->
-
-              </mat-expansion-panel-header>
-
-              <a mat-list-item [routerLink]="['dashboard']" ><i class="fa fa-dashboard"></i>داشبورد</a>
-          
-              
-
-            </mat-expansion-panel>
-          </mat-accordion>
-          
-
+          <a mat-list-item [routerLink]="['dashboard']" >داشبورد</a>
+          <a mat-list-item [routerLink]="['users']" style="display: none">کاربران</a>
       </mat-nav-list>
     </mat-sidenav>
 

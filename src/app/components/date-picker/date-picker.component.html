@@ -54,56 +54,82 @@
 
 
 <div id="date-range" class="w3-modal">
-        <div class="w3-modal-content w3-round">
-                <div class="w3-container">
-                        <span onclick="document.getElementById('new-desc').style.display='none'" class="w3-button w3-display-topleft">&times;</span>
-                        <header class="w3-container">
-                                <span onclick="document.getElementById('date-range').style.display='none'"
-                                        class="w3-button w3-display-topleft">&times;</span>
-                                <h1 style="font-size: 32px;">انتخاب بازه زمانی</h1>
-                        </header>
-                <div class="w3-container">
+   <div class="w3-modal-content w3-round">
+        <div class="w3-container">
+                <span onclick="document.getElementById('new-desc').style.display='none'" class="w3-button w3-display-topleft">&times;</span>
+                <header class="w3-container">
+                        <span onclick="document.getElementById('date-range').style.display='none'"
+                                class="w3-button w3-display-topleft">&times;</span>
+                        <h1 style="font-size: 32px;">انتخاب بازه زمانی</h1>
+                       
+                </header>
+        <div class="w3-container w3-right w3-margin">
+                <mat-radio-group   [(ngModel)]="radio_date"
+                aria-labelledby="example-radio-group-label" [disabled]="!disabled"
+                        class="example-radio-group">
+                        <mat-radio-button 
+                                value="today" class="example-radio-group date-radio-button w3-margin" color="primary">
+                                امروز
+                        </mat-radio-button>
+                        <mat-radio-button  
+                                value="last-weak" class="example-radio-group date-radio-button w3-margin" >
+                                یک هفته قبل
+                        </mat-radio-button>
+                        <mat-radio-button 
+                                value="last-month" class="example-radio-group date-radio-button w3-margin" >
+                                یک ماه قبل
+                        </mat-radio-button>        
+                </mat-radio-group>
+        </div>
+        <form [formGroup]="dateForm" (ngSubmit)="dateFilter()">
+                
+                <mat-card-content>
+                        <div class="w3-container">
 
-                <div class="w3-row">
-                        <div class="w3-col s4 w3-center">
-                                <mat-form-field class="modal-fields" style="padding-top:46px">
-                                        <input matInput [matDatepicker]="dp1" placeholder="از تاریخ"  [disabled]="disabled">
-                                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-                                        <mat-datepicker #dp1></mat-datepicker>
-                                </mat-form-field>
-                        </div>
-                        <div class="w3-col s4 w3-center">
-                                <section class="date-checkbox-section">
-                                        <mat-checkbox class="w3-right w3-margin-right w3-padding" (change)="disabled=!disabled">تاریخ دلخواه</mat-checkbox>
-                                </section>
-                                <mat-form-field class="modal-fields" >
-                                        <input matInput [matDatepicker]="dp2" placeholder="تا تاریخ"  [disabled]="disabled">
-                                        <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-                                        <mat-datepicker #dp2></mat-datepicker>
-                                </mat-form-field>
-                        </div>
-                        <div class="w3-col s4 w3-center">
-                                <mat-radio-group aria-labelledby="example-radio-group-label" [disabled]="!disabled"
-                                        class="example-radio-group">
-                                        <mat-radio-button value="1" class="example-radio-group date-radio-button w3-margin" color="primary">
-                                                امروز
-                                        </mat-radio-button>
-                                        <mat-radio-button value="2" class="example-radio-group date-radio-button w3-margin" >
-                                                یک هفته قبل
-                                        </mat-radio-button>
-                                        <mat-radio-button value="3" class="example-radio-group date-radio-button w3-margin" >
-                                                یک ماه قبل
-                                        </mat-radio-button>        
-                                </mat-radio-group>
-                        </div>
-                </div>                                
+                        <div class="w3-row">
+                                <mat-card-content>
+                                        <div class="w3-col s6 w3-center">
+                                                <mat-form-field class="modal-fields" style="padding-top:1px">
+                                                        <input matInput [matDatepicker]="dp1" placeholder="تا تاریخ" 
+                                                         [disabled]="disabled" formControlName="end_date">
+                                                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                                                        <mat-datepicker #dp1></mat-datepicker>
+                                                </mat-form-field> 
+                                        </div>
+                                        <div class="w3-col s6 w3-center">
+                                                <section class="date-checkbox-section">
+                                                        <mat-checkbox class="w3-right w3-margin-right w3-padding" (change)="disabled=!disabled">تاریخ دلخواه</mat-checkbox>
+                                                </section>
+                                                
+                                                <mat-form-field class="modal-fields" >
+                                                        <input matInput [matDatepicker]="dp2"
+                                                        formControlName="start_date" placeholder="از تاریخ"  [disabled]="disabled">
+                                                        <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                                                        <mat-datepicker #dp2></mat-datepicker>
+                                                </mat-form-field> 
+                                        </div>
+                                </mat-card-content>
+                        </div>                                
+                </div>
+                
+                </mat-card-content>
+                
+                <mat-card-actions>
+                        <button 
+                        mat-raised-button id="add-filter" 
+                        class="w3-container"  style="margin:24px 32px; border-radius: 32px;" 
+                        onclick="document.getElementById('date-range').style.display='none'" 
+                        (click)="dateFilter()">
+                                اعمال فیلتر
+                        </button>
+                        <!-- <button mat-raised-button color="primary">Create</button> -->
+                </mat-card-actions>
+                </form>
+                <!-- <div *ngIf="isSubmitted">
+                        <p>Please select either value</p>
+                </div> -->
         </div>
-        <button mat-raised-button type="submit" id="add-filter" class="w3-container"  style="margin:24px 32px; border-radius: 32px;" onclick="document.getElementById('date-range').style.display='none'">
-                اعمال فیلتر
-        </button>
-        <div *ngIf="isSubmitted">
-                <p>Please select either value</p>
-        </div>
+
 </div>
 
             

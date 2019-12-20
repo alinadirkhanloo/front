@@ -6,16 +6,10 @@ import { error } from '@angular/compiler/src/util';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers:[ApiService]
+  providers:[ApiService],
 })
 export class AppComponent {
-  title = 'demo-one';
-  users=[{name:'ali'}]
+  title = 'Tahlil Khabar';
   constructor(private api:ApiService){
-    this.getUsers();
-  }
-
-  getUsers=()=>{
-
   }
 }

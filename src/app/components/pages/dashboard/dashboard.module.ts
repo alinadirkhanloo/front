@@ -48,6 +48,8 @@ import { WidgetsComponent } from '../../common/widgets/widgets.component';
 import { Map2Component } from '../../charts/map2/map2.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -65,10 +67,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FilterBarComponent,
     FilterProfileComponent,
     WidgetsComponent,
-    Map2Component
+    Map2Component,
     ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     CommonModule,
+    MatCardModule,
     DashboardRoutingModule,
     MatBottomSheetModule,
     MatButtonModule,

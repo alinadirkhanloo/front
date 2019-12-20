@@ -1,6 +1,4 @@
-@font-face { font-family: mitra; 
-    src: url('../../../assets/Far_Mitra.ttf'); font-weight: 400;
-  } 
+
 *{
     font-family: mitra;
     font-size: 18px;
@@ -55,6 +53,11 @@
     font-family: mitra!important;
     font-size: 24px;
 }
+::ng-deep .mat-datepicker-content-touch {
+    margin:0!important;
+}
+
+
 .modal-fields{
     margin-top: 25%!important;
 }
@@ -67,9 +70,9 @@
 ::ng-deep .mat-radio-inner-circle {
     background-color: #a411df!important;
 }
-.date-radio-button{
-    display: block;
-}
+// .date-radio-button{
+//     display: block;
+// }
 
 #add-filter{
     font-size: 18px;

@@ -1,7 +1,11 @@
 <div id="filter-profile-container">
-    <button class="w3-padding" mat-raised-button>
+    <button class="w3-padding" mat-raised-button [matMenuTriggerFor]="menu">
         <i class="fa fa-list-ul" style="font-size: 24px;
         margin-left: 16px;"></i>
         انتخاب پروفایل
     </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>پروفایل 1</button>
+        <button mat-menu-item>پروفایل 2</button>
+      </mat-menu>
 </div>

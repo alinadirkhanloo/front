@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
   password: string;
   constructor(private router: Router , private apiService: ApiService) {}
   public login(email: string, password: string) {
-      // this.apiService.getCountryNews("iran").subscribe((data: {}) => {
-      //   console.log(data['body'].posts);
-      // });
-      this.router.navigate(['sidenav/dashboard'], { replaceUrl: true });
+      this.apiService.getCountryNews('iran').subscribe((data: {}) => {
+        console.log(data);
+      });
+      // this.router.navigate(['sidenav/dashboard'], { replaceUrl: true });
   }
   ngOnInit() {}
 }

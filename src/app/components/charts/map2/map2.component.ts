@@ -11,7 +11,8 @@ export interface TopCountry {
 @Component({
   selector: 'app-map2',
   templateUrl: './map2.component.html',
-  styleUrls: ['./map2.component.scss']
+  styleUrls: ['./map2.component.scss'],
+  inputs:[`startdate`,`enddate`],
 })
 export class Map2Component implements OnInit {
 

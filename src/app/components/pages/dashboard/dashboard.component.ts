@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -56,11 +58,20 @@ export class DashboardComponent implements OnInit {
     {value: 'MN',   key: 'mongolia'}
 
   ]
- 
-  constructor(private apiService: ApiService) { }
-
+  constructor(private apiService: ApiService,private data_sharing:DataSharingService) { }
+  
+  start_date:string
+  end_date:string
   ngOnInit() {
-    // this.load_data();
+    const start=this.data_sharing.start_date;
+    const end=this.data_sharing.end_date;
+    start.subscribe((date:string)=>{
+      this.start_date=date
+    })
+    end.subscribe((date:string)=>{
+      this.end_date=date
+    })
+      
     this.top_country=[]
     setTimeout(()=>{this.load_data()}, 1000)
   }

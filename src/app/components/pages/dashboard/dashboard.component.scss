@@ -143,7 +143,7 @@
 }
 footer {
   background-repeat: no-repeat;background-color: #6d0577;
-background-image: url('../../../../assets/imgs/wave-foot.png');
+  background-image: url('../../../../assets/imgs/wave-foot.png');
   margin-top: auto;
   width: 100%;
   height: 700px;
@@ -159,10 +159,10 @@ background-image: url('../../../../assets/imgs/wave-foot.png');
 .footer-list-header {
   padding: 10px 0 5px 0;
   color: #fff;
-  font: 2.3vw "Oswald", sans-serif
+  font: 2.3vw mitra
 }
 .footer-list-anchor {
-  font: 1.3em "Open Sans", sans-serif
+  font: 1.3em mitra
 }
 .footer-social-section {
   width: 100%;
@@ -189,7 +189,7 @@ background-image: url('../../../../assets/imgs/wave-foot.png');
 .footer-social-connect {
   display: flex;
   align-items: center;
-  font: 3.5em "Oswald", sans-serif;
+  font: 3.5em mitra;  
   color: #fff
 }
 .footer-social-small {

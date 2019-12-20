@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
@@ -18,7 +18,8 @@ export interface News {
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  inputs:[`startdate`,`enddate`]
 })
 
 
@@ -75,15 +76,15 @@ export class MapComponent implements OnInit {
   private info:News
   country_ids;
   country_name;
-  
   constructor(private apiService: ApiService) {
 
   }
-
+  
   ngOnInit() { 
     this.load_data();
     setTimeout(()=>{ this.load_map(this.loadMapData(this.recived_data)) }, 1000)  
 }
+
 
 
 load_map(res_data){
