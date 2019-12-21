@@ -37,11 +37,19 @@ export class ApiService {
   })
 
   getLocations(){
-    return this.http.get<any>("http://192.168.204.170:8001/api/v1/location-stats",{headers:this.httpHeaders})
+    const params = new HttpParams({
+      fromObject: {
+        start_date: this.start_date,
+        end_date: this.end_date,
+      }
+    });
+    // console.log('apiservice:getlocations()','start',this.start_date,'end',this.end_date)
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/location-stats",{headers:this.httpHeaders,params:params})
   }
 
   getNumberOfNews(){
-    return this.http.get<any>("http://192.168.204.170:8001/api/v1/news-statistics",{headers:this.httpHeaders})
+    var v=this.http.get<any>("http://192.168.204.170:8001/api/v1/news-statistics",{headers:this.httpHeaders})
+    return v
   }
 
   getNumberOfSites(){
@@ -55,38 +63,62 @@ export class ApiService {
         end_date: this.end_date,
       }
     });
-    console.log(params)
+    // console.log(params)
     return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-words",{headers:this.httpHeaders,params:params})
   }
 
   getSentiment(){
-    return this.http.get<any>("http://192.168.204.170:8001/api/v1/sentiment-stats",{headers:this.httpHeaders})
+    const params = new HttpParams({
+      fromObject: {
+        start_date: this.start_date,
+        end_date: this.end_date,
+      }
+    });
+    var res=this.http.get<any>("http://192.168.204.170:8001/api/v1/sentiment-stats",{headers:this.httpHeaders,params:params});
+    // console.log('apiservice:getlocations()','start',this.start_date,'end',this.end_date,res)
+    return res
   }
 
   getTopPlatforms(){
-    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-platform",{headers:this.httpHeaders})
+    const params = new HttpParams({
+      fromObject: {
+        start_date: this.start_date,
+        end_date: this.end_date,
+      }
+    });
+    // console.log('apiservice:getlocations()','start',this.start_date,'end',this.end_date)
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-platform",{headers:this.httpHeaders,params:params})
   }
 
   getTopCategory(){
-    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-category",{headers:this.httpHeaders})
+    const params = new HttpParams({
+      fromObject: {
+        start_date: this.start_date,
+        end_date: this.end_date,
+      }
+    });
+    // console.log('apiservice:getlocations()','start',this.start_date,'end',this.end_date)
+    return this.http.get<any>("http://192.168.204.170:8001/api/v1/top-category",{headers:this.httpHeaders,params:params})
   }
 
 
   getCategoryNews(category){
-    return this.http.post<any>("http://192.168.204.170:8001/api/v1/category-news",{category},{headers:this.httpHeaders}); 
+    var start=this.start_date;
+    var end=this.end_date;
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/category-news",{category:category,start_date:start,end_date:end},{headers:this.httpHeaders}); 
   }
 
   getCountryNews(country){
     var start=this.start_date;
     var end=this.end_date;
-    this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country:country,start_date:'1398/08/01',end_date:end},{headers:this.httpHeaders}).subscribe((data: {}) => {
-      console.log(data);
-    });
-    return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country,start,end},{headers:this.httpHeaders});
+    console.log('start-date:',start," end-date:",end)
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country:country,start_date:start,end_date:end},{headers:this.httpHeaders});  
   }
 
   getPlatformNews(platform){
-    return this.http.post<any>("http://192.168.204.170:8001/api/v1/platform-news",{platform},{headers:this.httpHeaders}); 
+    var start=this.start_date;
+    var end=this.end_date;
+    return this.http.post<any>("http://192.168.204.170:8001/api/v1/platform-news",{platform:platform,start_date:start,end_date:end},{headers:this.httpHeaders}); 
   }
 
 

@@ -22,6 +22,7 @@ export class WidgetsComponent implements OnInit {
     
     this.apiService.getNumberOfNews().subscribe(data => {
       this.news_num=data['body'].number_of_news;
+      
     });
     this.apiService.getNumberOfSites().subscribe(data => {
       this.rss_num=data['body'].number_of_rss;

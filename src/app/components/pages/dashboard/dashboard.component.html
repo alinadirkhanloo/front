@@ -1,150 +1,140 @@
-
-<!-- <div>
-  {{start_date}},{{end_date}}
-</div> -->
-
-  <!-- Header -->
+ <!-- Header -->
   <header style="margin-bottom: 2%">
       <app-filter-bar ></app-filter-bar>
   </header>
 
-<app-widgets></app-widgets>
+  <app-widgets></app-widgets>
 
 
-<div class="w3-row-padding w3-section"> 
-  <app-map2 [startdate]="start_date" [enddate]="end_date"></app-map2>
-</div>
-
-<div class="w3-row-padding w3-section">
-  <div class="w3-col s3 card1">
-    <div class="w3-container w3-card w3-round chart" style="height:500px;">
-        <div class="w3-panel chart-title w3-border-purple w3-rightbar">
-            <h2>احساسات
-                <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
-            </h2>
-        </div>
-        <app-semi-circle dir="ltr"></app-semi-circle>
-    </div>
+  <div class="w3-row-padding w3-section"> 
+    <app-map2 [startdate]="start_date" [enddate]="end_date"></app-map2>
   </div>
-  <div class="w3-col s9 card2">
-    <div class="w3-card w3-round" style="background:#fff;height:500px; margin:10px;">
-    <div class="w3-container chart-title w3-round">
-        <div  class="w3-panel w3-border-purple w3-rightbar ">
-            <h2>لغات پرتکرار
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s3 card1">
+      <div class="w3-container w3-card w3-round chart" style="height:500px;">
+          <div class="w3-panel chart-title w3-border-purple w3-rightbar">
+              <h2>احساسات
+                  <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
               </h2>
+          </div>
+          <app-semi-circle [startdate]="start_date" [enddate]="end_date"></app-semi-circle>
       </div>
-        </div>
-        <app-word-cloud dir="ltr" [startdate]="start_date" [enddate]="end_date"></app-word-cloud>
     </div>
-  </div>
-</div>
-
-<div class="w3-row-padding w3-section">
-  <div class="w3-col s3 card1">
-    <div class="w3-container w3-card w3-round chart" style="height:630px; ">
-        <div class="w3-panel chart-title w3-border-purple w3-rightbar">
-            <h2>برترین تهدیدها
-                <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
-            </h2>
-        </div>
-        <app-cylinder></app-cylinder>
-    </div>
-  </div>
-  <div class="w3-col s9 card2">
-    <div class="w3-card w3-round" style="background:#fff;height:630px; margin:10px; padding:10px;">
-    <div class="w3-container chart-title w3-round">
-        <div  class="w3-panel w3-border-purple w3-rightbar ">
-            <h2>پراکندگی تهدید
-              </h2>
-      </div>      
-      
-      
-        </div>
-        <app-pure></app-pure>
-    </div>
-  </div>
-</div>
-
-<div class="w3-row-padding w3-section">
-  <!-- <div class="w3-col s3 card1">
-    <div class="w3-row">
-        <div class="w3-container w3-card-4 w3-round chart" style="height:400px;">
-            <div class="w3-container chart-title w3-round">
-                <h2>برترین تهدیدها
-                    <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+    <div class="w3-col s9 card2">
+      <div class="w3-card w3-round" style="background:#fff;height:500px; margin:10px;">
+      <div class="w3-container chart-title w3-round">
+          <div  class="w3-panel w3-border-purple w3-rightbar ">
+              <h2>لغات پرتکرار
                 </h2>
-            </div>
-            <app-cylinder dir="ltr"></app-cylinder>
         </div>
+          </div>
+          <app-word-cloud dir="ltr" [startdate]="start_date" [enddate]="end_date"></app-word-cloud>
+      </div>
     </div>
-    <div class="w3-row">
-        <div class="w3-container w3-card-4 w3-round chart" style="height:400px;">
-            <div class="w3-container w3-purple w3-round">
-                <h2>برترین تهدیدها
-                    <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
-                </h2>
-            </div>
-            <app-cylinder dir="ltr"></app-cylinder>
-        </div>
-    </div>
-  </div> -->
-  <div class="w3-col">
-    <div class="w3-card w3-round" style="background:#fff;height:820px; margin:10px;">
-    <div class="w3-container chart-title w3-round">
-            
-        <div  class="w3-panel w3-border-purple w3-rightbar ">
-            <h2>پراکندگی پلتفرم
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s3 card1">
+      <div class="w3-container w3-card w3-round chart" style="height:630px; ">
+          <div class="w3-panel chart-title w3-border-purple w3-rightbar">
+              <h2>برترین تهدیدها
+                  <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
               </h2>
-      </div>    
+          </div>
+          <app-cylinder [startdate]="start_date" [enddate]="end_date"></app-cylinder>
+      </div>
+    </div>
+    <div class="w3-col s9 card2">
+      <div class="w3-card w3-round" style="background:#fff;height:630px; margin:10px; padding:10px;">
+      <div class="w3-container chart-title w3-round">
+          <div  class="w3-panel w3-border-purple w3-rightbar ">
+              <h2>پراکندگی تهدید
+                </h2>
+        </div>      
+        
+        
+          </div>
+          <app-pure [startdate]="start_date" [enddate]="end_date"></app-pure>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <!-- <div class="w3-col s3 card1">
+      <div class="w3-row">
+          <div class="w3-container w3-card-4 w3-round chart" style="height:400px;">
+              <div class="w3-container chart-title w3-round">
+                  <h2>برترین تهدیدها
+                      <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+                  </h2>
+              </div>
+              <app-cylinder dir="ltr"></app-cylinder>
+          </div>
+      </div>
+      <div class="w3-row">
+          <div class="w3-container w3-card-4 w3-round chart" style="height:400px;">
+              <div class="w3-container w3-purple w3-round">
+                  <h2>برترین تهدیدها
+                      <span class=" w3-padding w3-left"><i id="ch" class="fa fa-globe"></i></span>
+                  </h2>
+              </div>
+              <app-cylinder dir="ltr"></app-cylinder>
+          </div>
+      </div>
+    </div> -->
+    <div class="w3-col">
+      <div class="w3-card w3-round" style="background:#fff;height:820px; margin-right:10px;">
+      <div class="w3-container chart-title w3-round">
+              
+          <div  class="w3-panel w3-border-purple w3-rightbar ">
+              <h2>پراکندگی پلتفرم
+                </h2>
+        </div>    
+      
+          </div>
+          <app-column-chart [startdate]="start_date" [enddate]="end_date"></app-column-chart>
+      </div>
+    </div>
+  </div>
+
+
+  <footer dir="ltr" class="flex-rw">
     
-        </div>
-        <app-column-chart dir="ltr"></app-column-chart>
-    </div>
-  </div>
-</div>
-
-<!-- <footer style="height:600px;    background-repeat: no-repeat;background-color: #6d0577;
-background-image: url('../../../assets/imgs/wave-foot.png');">
-
-
-</footer> -->
-
-<footer dir="ltr" class="flex-rw">
-  
-  <!-- <ul class="footer-list-top">
-    <li>
-      <h4 class="footer-list-header">درباره سامانه</h4></li>
-    <li><a href='/shop/about-mission' class="generic-anchor footer-list-anchor" itemprop="significantLink">توسعه دهندگان</a></li>
-    <li><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">آپای دانشگاه زنجان</a></li>
+    <!-- <ul class="footer-list-top">
+      <li>
+        <h4 class="footer-list-header">درباره سامانه</h4></li>
+      <li><a href='/shop/about-mission' class="generic-anchor footer-list-anchor" itemprop="significantLink">توسعه دهندگان</a></li>
+      <li><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">آپای دانشگاه زنجان</a></li>
+    </ul>
+    <ul class="footer-list-top">
+      <li>
+        <h4 class="footer-list-header">خدمات</h4></li>
+      <li><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">راهنمایی و پشتیبانی</a></li>
   </ul>
-  <ul class="footer-list-top">
-    <li>
-      <h4 class="footer-list-header">خدمات</h4></li>
-    <li><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">راهنمایی و پشتیبانی</a></li>
- </ul>
-  <ul class="footer-list-top">
-    <li id='help'>
-      <h4 class="footer-list-header">حریم خصوصی</h4></li>
-    <li><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">سیاست نامه</a></li>
- </ul> -->
-  <section class="footer-social-section flex-rw">
-      <span class="footer-social-overlap footer-social-icons-wrapper">
-      <a href="https://twitter.com/Cert.znu" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fab fa-twitter"></i></a>
-      <a href="http://instagram.com/cert.znu" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.aparat.com/cert.znu" class="generic-anchor" target="_blank" title="Aparat" itemprop="significantLink"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.gmail.com/certoffice@znu.zc.ir" class="generic-anchor" target="_blank" title="Gmail" itemprop="significantLink"><i class="fas fa-at"></i></a>
-      <a href="https://www.cert.znu.zc.ir" class="generic-anchor" target="_blank" title="Website" itemprop="significantLink"><i class="fa fa-globe"></i></a>
-      </span>
-      <span class="footer-social-overlap footer-social-connect">
-        ما<span class="footer-social-small">با</span> ارتباط
-       </span>
-  </section>
-  <section class="footer-bottom-section flex-rw">
-  <div class="footer-bottom-wrapper">   
-    <i class="fa fa-copyright" role="copyright"></i> 2019 APA 
-  </div>
-    <!-- <div class="footer-bottom-wrapper">
-    <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
-      </div> -->
-  </section>
-</footer>
+    <ul class="footer-list-top">
+      <li id='help'>
+        <h4 class="footer-list-header">حریم خصوصی</h4></li>
+      <li><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">سیاست نامه</a></li>
+  </ul> -->
+    <section class="footer-social-section flex-rw">
+        <span class="footer-social-overlap footer-social-icons-wrapper">
+        <a href="https://twitter.com/Cert.znu" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fab fa-twitter"></i></a>
+        <a href="http://instagram.com/cert.znu" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.aparat.com/cert.znu" class="generic-anchor" target="_blank" title="Aparat" itemprop="significantLink"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.gmail.com/certoffice@znu.zc.ir" class="generic-anchor" target="_blank" title="Gmail" itemprop="significantLink"><i class="fas fa-at"></i></a>
+        <a href="https://www.cert.znu.ac.ir" class="generic-anchor" target="_blank" title="Website" itemprop="significantLink"><i class="fa fa-globe"></i></a>
+        </span>
+        <span class="footer-social-overlap footer-social-connect">
+          ما<span class="footer-social-small">با</span> ارتباط
+        </span>
+    </section>
+    <section class="footer-bottom-section flex-rw">
+    <div class="footer-bottom-wrapper">   
+      <i class="fa fa-copyright" role="copyright"></i> 2019 APA 
+    </div>
+      <!-- <div class="footer-bottom-wrapper">
+      <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
+        </div> -->
+    </section>
+  </footer>

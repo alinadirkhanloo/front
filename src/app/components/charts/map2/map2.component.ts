@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
 export interface TopCountry {
@@ -70,7 +70,13 @@ export class Map2Component implements OnInit {
     this.load_data();    
   }
 
-
+  ngOnChanges(changes: SimpleChanges){ 
+    // console.log(changes);
+    if(changes['startdate'].firstChange==false){
+    this.top_country=[]
+    this.load_data();  
+  } 
+  }
 
   load_data(){
     this.apiService.getLocations().subscribe(data => {

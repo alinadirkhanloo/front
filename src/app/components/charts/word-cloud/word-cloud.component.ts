@@ -4,6 +4,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4plugins_wordCloud from "@amcharts/amcharts4/plugins/wordCloud";
 import { ApiService } from 'src/app/services/api.service';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
+import am4themes_material from '@amcharts/amcharts4/themes/spiritedaway'
 
 @Component({
   selector: 'app-word-cloud',
@@ -14,38 +15,21 @@ import { DataSharingService } from 'src/app/services/data-sharing.service';
 export class WordCloudComponent implements OnInit {
   private recived_data=[]
   constructor(private apiService: ApiService,private data_shared:DataSharingService) { }
-  start=this.data_shared.start_date;
-  end=this.data_shared.end_date;
   ngOnInit() {
-    this.loadComponent(this.start,this.end)
+    this.load_data();
+    setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 400)
   }
 
 ngOnChanges(changes: SimpleChanges){
-  if(!changes['startdate'].firstChange && changes['enddate']==undefined){
-    this.start=changes['startdate'].currentValue;
-    this.loadComponent(this.start,this.end)
-    console.log('++')
-  }else if(!changes['startdate'].firstChange && !changes['enddate'].firstChange){
-      this.start=changes['startdate'].currentValue;
-      this.end=changes['enddate'].currentValue;
-      this.loadComponent(this.start,this.end)
-      console.log('--')
-  }else if(changes['startdate']==undefined && !changes['enddate'].firstChange){
-    // this.start=changes['startdate'].currentValue;
-    this.end=changes['enddate'].currentValue;
-    this.loadComponent(this.start,this.end)
-    console.log('**')
-}    
-}
-
-loadComponent(start,end){
   this.load_data();
-  setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 1000)
+  setTimeout(()=>{ this.loadChart(this.preProc(this.recived_data)) }, 400)
+
 }
 
 
 loadChart(data){
   am4core.useTheme(am4themes_animated);
+  // am4core.useTheme(am4themes_material);
   // Themes end
   
   
@@ -80,7 +64,7 @@ loadChart(data){
 
 load_data(){
   this.apiService.getTOpWords().subscribe(data => {
-    console.log(data)
+    // console.log(data)
     this.recived_data=data['body'];
   });
   

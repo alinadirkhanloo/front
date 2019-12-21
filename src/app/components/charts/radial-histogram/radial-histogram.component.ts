@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_material from '@amcharts/amcharts4/themes/material'
 
 @Component({
   selector: 'app-radial-histogram',
@@ -17,6 +18,8 @@ export class RadialHistogramComponent implements OnInit {
 
 // Themes begin
 am4core.useTheme(am4themes_animated);
+
+am4core.useTheme(am4themes_material);
 // Themes end
 
 // Create chart instance

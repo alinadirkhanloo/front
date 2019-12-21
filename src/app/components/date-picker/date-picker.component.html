@@ -4,55 +4,6 @@
     <i class="fa fa-calendar" style="font-size: 24px;
     margin-left: 16px;"></i>بازه زمانی</button>
 </div>
-
-<!-- <div id="date-range w3-hide">
-        <div class="w3-modal-content">
-                <header class="w3-container">
-                    <span onclick="document.getElementById('date-range').style.display='none'"
-                    class="w3-button w3-display-topleft">&times;</span>
-                    <h2>انتخاب بازه زمانی</h2>
-                </header>
-                <div class="w3-container">
-                       
-                        <div class="w3-row">
-                                <div class="w3-col s4 w3-center">
-                                        <mat-form-field>
-                                                <input matInput [matDatepicker]="dp1" placeholder="Different locale">
-                                                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-                                                <mat-datepicker #dp1></mat-datepicker>
-                                        </mat-form-field>
-                                </div>
-                                <div class="w3-col s4 w3-center">
-                                        <mat-form-field>
-                                                <input matInput [matDatepicker]="dp2" placeholder="Different locale">
-                                                <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-                                                <mat-datepicker #dp2></mat-datepicker>
-                                        </mat-form-field>
-                                </div>
-                                <div class="w3-col s4 w3-center">
-                                        <mat-radio-group aria-labelledby="example-radio-group-label"
-                                                class="example-radio-group">
-                                                <mat-radio-button class="date-radio-button w3-margin" >
-                                                                امروز
-                                                </mat-radio-button>
-
-                                                <mat-radio-button class="date-radio-button w3-margin" >
-                                                                یک هفته قبل
-                                                </mat-radio-button>
-                                                <mat-radio-button class="date-radio-button w3-margin" >
-                                                                یک ماه قبل
-                                                </mat-radio-button>        
-                                                              
-                                        </mat-radio-group>
-                                </div>
-                        </div>                                
-                </div>
-                <button mat-raised-button class="w3-container"  style="margin: 20px;"color="primary">Prfsdfaimary</button>
-        </div>
-</div>
-                -->
-
-
 <div id="date-range" class="w3-modal">
    <div class="w3-modal-content w3-round">
         <div class="w3-container">
@@ -67,16 +18,16 @@
                 <mat-radio-group   [(ngModel)]="radio_date"
                 aria-labelledby="example-radio-group-label" [disabled]="!disabled"
                         class="example-radio-group">
-                        <mat-radio-button 
+                        <mat-radio-button checked="true" 
                                 value="today" class="example-radio-group date-radio-button w3-margin" color="primary">
                                 امروز
                         </mat-radio-button>
                         <mat-radio-button  
-                                value="last-weak" class="example-radio-group date-radio-button w3-margin" >
+                                value="last-weak" class="example-radio-group date-radio-button w3-margin" [disabled]="true">
                                 یک هفته قبل
                         </mat-radio-button>
-                        <mat-radio-button 
-                                value="last-month" class="example-radio-group date-radio-button w3-margin" >
+                        <mat-radio-button
+                                value="last-month" class="example-radio-group date-radio-button w3-margin" [disabled]="true">
                                 یک ماه قبل
                         </mat-radio-button>        
                 </mat-radio-group>

@@ -34,7 +34,7 @@ export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> implem
   private date:MDate;
   private disabled = true;
   private isSubmitted = false;
-  private radio_date:string;
+  private radio_date:string='today';
 
   constructor(private data_sharing:DataSharingService,private apiService: ApiService) {
     super();
@@ -60,9 +60,9 @@ export class DatePickerComponent extends DateAdapter<jalaliMoment.Moment> implem
   }
 
   selectRadioDate(){
-    // let v=this.format(this.today(),"jYYYY/jMM/jDD");
-    // this.data_sharing.start_date.next(v);
-    // this.data_sharing.end_date.next(v);
+    let v=this.format(this.today(),"jYYYY/jMM/jDD");
+    this.data_sharing.start_date.next(v);
+    this.data_sharing.end_date.next(v);
     /*
     switch (this.radio_date) {  
       case 'today':

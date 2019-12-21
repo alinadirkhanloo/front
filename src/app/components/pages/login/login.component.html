@@ -18,13 +18,16 @@
     <div class="container-login100">
           <div class="w3-container w3-cell-row">
               <div class="w3-container w3-cell w3-center w3-display-container">
-                <img id ="apa" class="w3-img w3-display-middle" src="../../../../assets/apa-logo.png"/>
+                <a href="https://www.cert.znu.ac.ir" target="_blank">
+                  <img id ="apa" class="w3-img w3-display-middle" src="../../../../assets/apa-logo.png"/>
+                </a>
               </div>
               <div class="w3-container w3-display-container w3-cell w3-center" style="width:50%">
                 <h1 id="title" class="w3-display-middle w3-text-white">سامانه هوشمند جمع آوری<br> و تحلیل اخبار امنیتی</h1>
               </div>
               <div class="w3-container w3-cell w3-cell-middle w3-center w3-display-container">
-                <img id="maher" class="w3-img w3-display-middle " src="../../../../assets/maher_logo1.png"/>
+                <a href="https://cert.ir/" target="_blank"><img id="maher" class="w3-img w3-display-middle " 
+                 src="../../../../assets/maher_logo1.png" style="cursor: pointer"/></a>
               </div>
           </div>
     
@@ -39,34 +42,34 @@
         </span>
     
         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-        <input class="input100" type="text" name="email" placeholder="ايميل">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-        </span>
+          <input class="input100" type="text" name="email" placeholder="ايميل" value="admin@gmail.com">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </span>
         </div>
     
         <div class="wrap-input100 validate-input" data-validate = "Password is required">
-        <input class="input100" type="password" name="pass" placeholder="رمز عبور">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-          <i class="fa fa-lock" aria-hidden="true"></i>
-        </span>
+          <input class="input100" type="password" name="pass" placeholder="رمز عبور" value="admin">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </span>
         </div>
         
         <div class="container-login100-form-btn">
-        <button class="login100-form-btn" (click)="login(email, password)" type="submit">
-          ورود
-        </button>
+          <button class="login100-form-btn" (click)="login(email, password)" type="submit">
+            ورود
+          </button>
         </div>
     
-        <div class="text-center p-t-12">
-        <span class="txt1">
-                  فراموشی
-        </span>
-        <a class="txt2" href="#">
-                  نام کاربری/ رمز عبور ؟
-        </a>
+        <div class="text-center p-t-12 w3-padding w3-margin-top">
+          <span class="txt1">
+                    فراموشی
+          </span>
+          <a class="txt2" href="#">
+                    نام کاربری/ رمز عبور ؟
+          </a>
         </div>
     
         <!-- <div class="text-center p-t-136">
