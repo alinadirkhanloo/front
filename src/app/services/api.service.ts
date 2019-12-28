@@ -103,14 +103,14 @@ export class ApiService {
 
 
   getCategoryNews(category){
-    var start=this.start_date;
-    var end=this.end_date;
+    const start=this.start_date;
+    const end=this.end_date;
     return this.http.post<any>("http://192.168.204.170:8001/api/v1/category-news",{category:category,start_date:start,end_date:end},{headers:this.httpHeaders}); 
   }
 
   getCountryNews(country){
-    var start=this.start_date;
-    var end=this.end_date;
+    const start=this.start_date;
+    const end=this.end_date;
     console.log('start-date:',start," end-date:",end)
     return this.http.post<any>("http://192.168.204.170:8001/api/v1/country-news",{country:country,start_date:start,end_date:end},{headers:this.httpHeaders});  
   }
