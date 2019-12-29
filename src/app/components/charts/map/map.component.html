@@ -28,7 +28,8 @@
                     <ul id="news-list" class="w3-ul">
                         <li dir="ltr" class="w3-hover-light-grey"  *ngFor="let item of news;let i=index">{{item.title}}
                             <a class="w3-bar-item w3-left" (click)="getNews_info(i)" onclick="document.getElementById('map-new-desc').style.display='block'">
-                                <i  class="fa fa-chevron-down"></i> بیشتر</a>
+                                بیشتر
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -37,40 +38,4 @@
     </div>
 </div>
 
-
-<div id="map-new-desc" class="w3-modal">
-    <div class="w3-modal-content" style="width: 90%;margin-bottom: 70px">
-        <div class="w3-container" *ngIf="!!info" style="margin-left: 10px;">
-            <span onclick="document.getElementById('map-new-desc').style.display='none'" class="w3-button w3-display-topleft">&times;</span>
-
-            <header class="w3-container">
-                <h2 dir="ltr">{{info.title}}</h2>
-            </header>
-            <hr>
-
-            <div class="w3-cell-row w3-white">
-
-                <div dir="ltr" class="w3-container w3-white">
-                    <p class="w3-large">{{info.text}}</p>
-                </div>
-                <div class="w3-container">
-                    <div class="w3-show-inline-block w3-padding">
-                        <div class="w3-bar">
-                            <a class="w3-bar-item"><i  class="fa fa-clock" style="margin-left: 10px;"></i>{{info.date}}</a>
-                            <!-- <a class="w3-bar-item"><i  class="fa fa-eye w3-padding"></i>25</a> -->
-                        </div>
-                        </div>
-                    <div class="w3-show-inline-block w3-left w3-padding">
-                        <div class="w3-bar">
-                          <!-- <a class="w3-bar-item w3-button w3-black"><i  class="fa fa-link"></i></a>
-                          <a class="w3-bar-item w3-button w3-black"><i  class="fa fa-link"></i></a> -->
-                          <a class="w3-bar-item link" href="{{info.link}}" target="_blank"><i  class="fa fa-link" style="margin-left: 10px;"></i>لینک اصلی</a>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</div>
 

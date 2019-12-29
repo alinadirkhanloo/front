@@ -50,6 +50,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { NewsDetailsComponent } from './news-details/news-details.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { MatCardModule } from '@angular/material/card';
     FilterProfileComponent,
     WidgetsComponent,
     Map2Component,
+    NewsDetailsComponent,
     ],
   imports: [
     ReactiveFormsModule,

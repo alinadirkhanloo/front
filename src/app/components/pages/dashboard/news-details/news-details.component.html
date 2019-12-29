@@ -1,0 +1,30 @@
+    <div class="news-details-container" style="width: 100%;margin: 20px auto;"dir="ltr">
+        <div class="w3-container" *ngIf="!!info" style="margin: 0 auto;width: 85%;">
+            <span onclick="document.getElementById('map-new-desc').style.display='none'" class="w3-button w3-display-topleft"></span>
+
+            <header class="w3-container" >
+                <h2 >{{info.title}}</h2>
+                <div class="w3-show-inline-block" style="float: left;opacity:0.8">
+                    <div class="w3-bar">
+                        <a class="w3-bar-item"><i  class="fa fa-clock" style="margin-right: 10px;"></i>{{info.date}}</a>
+                    </div>
+                </div>
+            </header>
+            <hr>
+
+            <div class="w3-cell-row w3-white">
+
+                <div dir="ltr" class="w3-container w3-white">
+                    <p class="w3-large">{{info.text}}</p>
+                </div>
+                <div class="w3-container">
+                    <div class="w3-show-inline-block w3-right">
+                        <div class="w3-bar">
+                          <a class="w3-bar-item link w3-purple w3-round-xlarge" href="{{info.link}}" target="_blank">لینک اصلی<i  class="fa fa-link" style="margin-left: 10px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>

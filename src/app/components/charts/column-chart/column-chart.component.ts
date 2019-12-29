@@ -5,6 +5,7 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import { ApiService } from 'src/app/services/api.service';
 import { News } from '../map/map.component';
 import am4themes_material from '@amcharts/amcharts4/themes/spiritedaway'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,11 +23,13 @@ export class ColumnChartComponent implements OnInit {
   platform_name;
 
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService , private router: Router) { }
 
   ngOnInit() {
     this.load_data();
-    setTimeout(()=>{ this.loadChart(this.recived_data)}, 500)
+    setTimeout(()=>{ 
+      this.loadChart(this.recived_data)
+    }, 500)
   }
 
   ngOnChanges(changes: SimpleChanges){ 
@@ -121,7 +124,8 @@ export class ColumnChartComponent implements OnInit {
   }
 
   getNews_info(index){
-    this.info=this.news[index]
+    this.info=this.news[index];
+    this.router.navigate([`/sidenav/dashboard/news-details/${index}`]);
   }
 
   show_chart(){
