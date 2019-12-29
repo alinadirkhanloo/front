@@ -7,6 +7,8 @@ import am4geodata_worldHigh from "@amcharts/amcharts4-geodata/worldHigh";
 import { ApiService } from 'src/app/services/api.service';
 import { eventTarget } from '@amcharts/amcharts4/.internal/core/utils/DOM';
 import am4themes_material from '@amcharts/amcharts4/themes/spiritedaway'
+import { Router } from '@angular/router';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 export interface News {
   text: string;
@@ -76,7 +78,7 @@ export class MapComponent implements OnInit {
   private info:News
   country_ids;
   country_name;
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private router: Router, private dataSharingService: DataSharingService) {
 
   }
   
@@ -96,7 +98,7 @@ export class MapComponent implements OnInit {
     am4core.useTheme(am4themes_animated);
     // am4core.useTheme(am4themes_material);
     // Create map instance
-    var chart = am4core.create("chartdiv1", am4maps.MapChart);
+    let chart = am4core.create("chartdiv1", am4maps.MapChart);
 
     // Set map definition
     chart.geodata = am4geodata_worldHigh;
@@ -104,13 +106,13 @@ export class MapComponent implements OnInit {
     chart.projection = new am4maps.projections.Miller();
 
     // Create map polygon series
-    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
     polygonSeries.exclude = ["AQ"];
     //Set min/max fill color for each area
     polygonSeries.heatRules.push({
       property: "fill",
       target: polygonSeries.mapPolygons.template,
-      min: chart.colors.getIndex(1).brighten(1),
+      min: chart.colors.getIndex(1).brighten(0.3),
       max: chart.colors.getIndex(1).brighten(-0.5)
     });
 
@@ -131,10 +133,10 @@ export class MapComponent implements OnInit {
     heatLegend.maxValue = 100;
 
     // Set up custom heat map legend labels using axis ranges
-    var minRange = heatLegend.valueAxis.axisRanges.create();
+    let minRange = heatLegend.valueAxis.axisRanges.create();
     minRange.value = heatLegend.minValue;
     minRange.label.text = "کمترین";
-    var maxRange = heatLegend.valueAxis.axisRanges.create();
+    let maxRange = heatLegend.valueAxis.axisRanges.create();
     maxRange.value = heatLegend.maxValue;
     maxRange.label.text = "بیشترین";
 
@@ -144,16 +146,16 @@ export class MapComponent implements OnInit {
     });
 
     // Configure series tooltip
-    var polygonTemplate = polygonSeries.mapPolygons.template;
+    let polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}: {value}";
     polygonTemplate.nonScalingStroke = true;
     polygonTemplate.strokeWidth = 0.5;
 
     // Create hover state and set alternative fill color
-    var hs = polygonTemplate.states.create("hover");
+    let hs = polygonTemplate.states.create("hover");
     hs.properties.fill = am4core.color("#3c5bdc");
-    var lastSelected;
-    var s;
+    let lastSelected;
+    let s;
     polygonTemplate.events.on("hit", (ev)=>{
         // This line serves multiple purposes:
         // 1. Clicking a country twice actually de-activates, the line below
@@ -180,7 +182,7 @@ export class MapComponent implements OnInit {
       }
     })
     chart.zoomControl = new am4maps.ZoomControl();
-    var homeButton = new am4core.Button();
+    let homeButton = new am4core.Button();
     homeButton.events.on("hit", function(){
       chart.goHome();
     });
@@ -205,7 +207,7 @@ export class MapComponent implements OnInit {
 
 
   loadMapData(temp){
-    var d=[]
+    let d=[]
     for (let i = 0; i <temp.length; i++) {
       for (let index = 0; index < this.country_id.length; index++) {
         if(temp[i].title== this.country_id[index].key){
@@ -220,7 +222,9 @@ export class MapComponent implements OnInit {
   }
 
   getNews_info(index){
-    this.info=this.news[index]
+    this.info=this.news[index];
+    this.dataSharingService.setNews(this.info);
+    this.router.navigate([`/sidenav/dashboard/news-details/${index}`]);
   }
 
   getCountryNews(country){
@@ -231,8 +235,8 @@ export class MapComponent implements OnInit {
   }
 
   show_map(){
-    var x = document.getElementById("map-detail");
-    var y = document.getElementById("chartdiv1");
+    let x = document.getElementById("map-detail");
+    let y = document.getElementById("chartdiv1");
     x.className=x.className.replace(" w3-show","");
     y.className=y.className.replace(" w3-hide","");
   }

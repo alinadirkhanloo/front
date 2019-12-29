@@ -20,7 +20,9 @@ export class CylinderComponent implements OnInit {
 
   ngOnInit() {
     this.load_data();
-    setTimeout(()=>{ this.loadChart(this.recived_data)}, 500)
+    setTimeout(()=>{ 
+        this.loadChart(this.recived_data);
+    }, 500)
   }
 
   ngOnChanges(changes: SimpleChanges){ 

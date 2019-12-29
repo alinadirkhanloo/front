@@ -29,7 +29,7 @@ ngOnChanges(changes: SimpleChanges){
 
 loadChart(data){
   am4core.useTheme(am4themes_animated);
-  // am4core.useTheme(am4themes_material);
+  am4core.useTheme(am4themes_material);
   // Themes end
   
   
