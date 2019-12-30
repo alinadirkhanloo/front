@@ -15,8 +15,7 @@ export class NewsDetailsComponent implements OnInit {
     this.dataSharingService.getNews().subscribe((res: News) => {
       this.info = res;
     });
-    // console.log(this.info);
-    
+    document.getElementsByTagName('mat-drawer-content')[0].scrollTo(0, 0);
   }
 
 
